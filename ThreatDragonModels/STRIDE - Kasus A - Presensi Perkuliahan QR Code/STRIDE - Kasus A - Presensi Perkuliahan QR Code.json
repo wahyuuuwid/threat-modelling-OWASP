@@ -1,0 +1,31 @@
+{
+  "version": "2.6.2",
+  "release_version": "1.0.0",
+  "released_at": "2026-11-22",
+  "summary": {
+    "title": "STRIDE - Kasus A - Presensi Perkuliahan QR Code",
+    "owner": "Kelompok 13",
+    "description": "Threat modeling berbasis STRIDE untuk sistem presensi perkuliahan berbasis QR Code pada perguruan tinggi.",
+    "id": 0
+  },
+  "detail": {
+    "contributors": [
+      {
+        "name": "Wahyu Widodo"
+      },
+      {
+        "name": "Rahmat Ahdaf Albariza"
+      },
+      {
+        "name": "Fa’iq Jagadhita Hardiana"
+      },
+      {
+        "name": "Estetika Ananda Poetri Hariyanto"
+      }
+    ],
+    "diagrams": [],
+    "diagramTop": 0,
+    "reviewer": "Dosen Keamanan Siber",
+    "threatTop": 0
+  }
+}
