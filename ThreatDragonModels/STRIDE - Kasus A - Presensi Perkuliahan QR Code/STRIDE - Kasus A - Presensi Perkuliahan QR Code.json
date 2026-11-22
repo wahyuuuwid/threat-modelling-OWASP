@@ -23,8 +23,19 @@
         "name": "Estetika Ananda Poetri Hariyanto"
       }
     ],
-    "diagrams": [],
-    "diagramTop": 1,
+    "diagrams": [
+      {
+        "id": 1,
+        "title": "DFD Presensi Perkuliahan QR Code",
+        "diagramType": "STRIDE",
+        "placeholder": "New STRIDE diagram description",
+        "thumbnail": "./public/content/images/thumbnail.stride.jpg",
+        "version": "2.6.2",
+        "cells": [],
+        "description": "Data Flow Diagram level proses utama untuk sistem presensi perkuliahan berbasis QR Code.        "
+      }
+    ],
+    "diagramTop": 3,
     "reviewer": "M. Agung Nugroho",
     "threatTop": 0
   }
