@@ -1042,7 +1042,13 @@
             "target": {
               "cell": "3c1ef67f-197c-49ea-9f80-8c7325a6bc15",
               "port": "c88fd084-f172-4197-b08a-d48fb5772b8f"
-            }
+            },
+            "vertices": [
+              {
+                "x": 910,
+                "y": 260
+              }
+            ]
           },
           {
             "shape": "flow",
