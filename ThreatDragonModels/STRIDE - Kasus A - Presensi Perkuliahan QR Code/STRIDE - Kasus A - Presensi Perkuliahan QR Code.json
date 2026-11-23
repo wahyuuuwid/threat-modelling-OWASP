@@ -820,17 +820,59 @@
             "target": {
               "cell": "4ca509f7-776c-4c56-8c7f-04ba74c294a6",
               "port": "6bd3b827-8c16-4d95-92a3-6210b7a24724"
-            },
-            "tools": {
-              "items": [
-                "boundary",
-                "button-remove",
-                "vertices",
-                "source-arrowhead",
-                "target-arrowhead"
-              ],
-              "name": null
             }
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Notifikasi status presensi berhasil",
+              "description": "",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [],
+              "trustBoundaryIds": []
+            },
+            "labels": [
+              "Notifikasi status presensi berhasil"
+            ],
+            "id": "c90a4227-1324-489a-85d2-c0abd99e5523",
+            "source": {
+              "x": 660,
+              "y": 280
+            },
+            "target": {
+              "cell": "0b7b6ccb-16bc-43f7-a16d-bb923c345466",
+              "port": "57992b90-3e4a-43d7-a06f-1bf94d5502bc"
+            },
+            "vertices": [
+              {
+                "x": 350,
+                "y": 190
+              }
+            ]
           }
         ],
         "description": "Data Flow Diagram level proses utama untuk sistem presensi perkuliahan berbasis QR Code.        "
