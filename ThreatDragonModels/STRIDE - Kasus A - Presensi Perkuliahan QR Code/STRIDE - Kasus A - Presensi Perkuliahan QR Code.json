@@ -72,7 +72,7 @@
           {
             "position": {
               "x": 120,
-              "y": 85.00000000000045
+              "y": 55.000000000000455
             },
             "size": {
               "width": 170,
@@ -177,7 +177,7 @@
             "data": {
               "type": "tm.Actor",
               "name": "Mahasiswa (Browser)",
-              "description": "",
+              "description": "Mahasiswa yang login dengan akun kampus dan memindai QR sesi.",
               "isTrustBoundary": false,
               "outOfScope": false,
               "reasonOutOfScope": "",
@@ -189,7 +189,7 @@
           {
             "position": {
               "x": 120,
-              "y": 280
+              "y": 230
             },
             "size": {
               "width": 170,
@@ -294,7 +294,7 @@
             "data": {
               "type": "tm.Actor",
               "name": "Dosen (Browser)",
-              "description": "",
+              "description": "Membuka/menutup sesi kelas yang diampu dan memantau daftar hadir.",
               "isTrustBoundary": false,
               "outOfScope": false,
               "reasonOutOfScope": "",
@@ -717,7 +717,7 @@
             "vertices": [
               {
                 "x": 450,
-                "y": 370
+                "y": 310
               }
             ]
           },
@@ -770,8 +770,8 @@
             },
             "vertices": [
               {
-                "x": 430,
-                "y": 240
+                "x": 420,
+                "y": 200
               }
             ]
           },
@@ -824,8 +824,8 @@
             },
             "vertices": [
               {
-                "x": 480,
-                "y": 50
+                "x": 440,
+                "y": 55
               }
             ]
           },
@@ -849,7 +849,7 @@
             "connector": "smooth",
             "data": {
               "type": "tm.Flow",
-              "name": "Notifikasi status presensi berhasil",
+              "name": "Hasil presensi\n(diterima/ditolak)",
               "description": "",
               "outOfScope": false,
               "isTrustBoundary": false,
@@ -865,7 +865,7 @@
               ]
             },
             "labels": [
-              "Notifikasi status presensi berhasil"
+              "Hasil presensi\n(diterima/ditolak)"
             ],
             "id": "c90a4227-1324-489a-85d2-c0abd99e5523",
             "source": {
@@ -879,7 +879,7 @@
             "vertices": [
               {
                 "x": 350,
-                "y": 190
+                "y": 140
               }
             ]
           },
@@ -1094,6 +1094,123 @@
                 "y": 360
               }
             ]
+          },
+          {
+            "position": {
+              "x": 120,
+              "y": 370
+            },
+            "size": {
+              "width": 170,
+              "height": 60
+            },
+            "attrs": {
+              "text": {
+                "text": "Admin Akademik\n(Browser)"
+              },
+              "body": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "actor",
+            "ports": {
+              "groups": {
+                "top": {
+                  "position": "top",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "right": {
+                  "position": "right",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "bottom": {
+                  "position": "bottom",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "left": {
+                  "position": "left",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                }
+              },
+              "items": [
+                {
+                  "group": "top",
+                  "id": "2ace9d8b-f26e-4c09-9f52-026f994c37cd"
+                },
+                {
+                  "group": "right",
+                  "id": "33e8d872-0314-4ef1-bbfe-1049c5e98274"
+                },
+                {
+                  "group": "bottom",
+                  "id": "35d041d2-bc5d-4510-8bee-55b9da45f5b1"
+                },
+                {
+                  "group": "left",
+                  "id": "07a38e1f-2bd8-4806-854c-0f4ff3bc1609"
+                }
+              ]
+            },
+            "id": "bf1355ac-3ff0-4986-a8f8-07030b588ad1",
+            "zIndex": 11,
+            "data": {
+              "type": "tm.Actor",
+              "name": "Admin Akademik\n(Browser)",
+              "description": "Melihat rekap kehadiran seluruh kelas.",
+              "isTrustBoundary": false,
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "providesAuthentication": false,
+              "threats": []
+            }
           }
         ],
         "description": "Data Flow Diagram level proses utama untuk sistem presensi perkuliahan berbasis QR Code.        "
