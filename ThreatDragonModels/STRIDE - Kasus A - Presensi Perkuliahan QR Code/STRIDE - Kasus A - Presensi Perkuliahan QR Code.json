@@ -35,7 +35,7 @@
           {
             "position": {
               "x": 570,
-              "y": 40
+              "y": 30
             },
             "size": {
               "width": 430,
@@ -60,13 +60,21 @@
                 "5fcfa320-26a5-47f7-9940-00e99f21f356",
                 "df2944f1-192d-4b5b-98db-b7dbad7c44fc",
                 "9eaa7257-17bb-477a-a502-40136a059cd9",
-                "c90a4227-1324-489a-85d2-c0abd99e5523"
+                "c90a4227-1324-489a-85d2-c0abd99e5523",
+                "a9c3ac52-0491-444d-be4b-2f3096216d4f"
               ],
               "containedElements": [
                 "4af0b00d-d507-40d3-8155-192113e52a76",
                 "3c1ef67f-197c-49ea-9f80-8c7325a6bc15",
                 "4ca509f7-776c-4c56-8c7f-04ba74c294a6"
               ]
+            },
+            "tools": {
+              "items": [
+                "boundary",
+                "button-remove"
+              ],
+              "name": null
             }
           },
           {
@@ -882,6 +890,54 @@
                 "y": 190
               }
             ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Data Flow",
+              "description": "",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [],
+              "trustBoundaryIds": [
+                "a15bbbc8-0f76-4563-bc4b-1287d052f541"
+              ]
+            },
+            "labels": [
+              "Data Flow"
+            ],
+            "id": "a9c3ac52-0491-444d-be4b-2f3096216d4f",
+            "source": {
+              "x": 710,
+              "y": 200
+            },
+            "target": {
+              "cell": "4af0b00d-d507-40d3-8155-192113e52a76",
+              "port": "383b621b-b30b-4456-ba81-ca4da041da37"
+            }
           }
         ],
         "description": "Data Flow Diagram level proses utama untuk sistem presensi perkuliahan berbasis QR Code.        "
