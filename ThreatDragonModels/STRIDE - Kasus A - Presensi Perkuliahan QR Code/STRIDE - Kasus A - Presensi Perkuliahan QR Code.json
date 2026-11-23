@@ -1123,7 +1123,7 @@
             "connector": "smooth",
             "data": {
               "type": "tm.Flow",
-              "name": "Data Flow",
+              "name": "Permintaan rekap\nseluruh kelas",
               "description": "",
               "outOfScope": false,
               "isTrustBoundary": false,
@@ -1139,7 +1139,7 @@
               ]
             },
             "labels": [
-              "Data Flow"
+              "Permintaan rekap\nseluruh kelas"
             ],
             "id": "42589954-a401-4680-b333-bbaae3d5e41c",
             "source": {
