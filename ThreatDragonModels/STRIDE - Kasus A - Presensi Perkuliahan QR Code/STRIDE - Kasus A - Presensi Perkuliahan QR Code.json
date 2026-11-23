@@ -59,7 +59,8 @@
               "crossingFlows": [
                 "5fcfa320-26a5-47f7-9940-00e99f21f356",
                 "df2944f1-192d-4b5b-98db-b7dbad7c44fc",
-                "9eaa7257-17bb-477a-a502-40136a059cd9"
+                "9eaa7257-17bb-477a-a502-40136a059cd9",
+                "c90a4227-1324-489a-85d2-c0abd99e5523"
               ],
               "containedElements": [
                 "4af0b00d-d507-40d3-8155-192113e52a76",
@@ -188,10 +189,10 @@
           {
             "position": {
               "x": 120,
-              "y": 290
+              "y": 280
             },
             "size": {
-              "width": 160,
+              "width": 170,
               "height": 60
             },
             "attrs": {
@@ -304,8 +305,8 @@
           },
           {
             "position": {
-              "x": 670,
-              "y": 85.00000000000045
+              "x": 835,
+              "y": 190
             },
             "size": {
               "width": 60,
@@ -425,7 +426,7 @@
           {
             "position": {
               "x": 805,
-              "y": 165
+              "y": 340
             },
             "size": {
               "width": 120,
@@ -548,8 +549,8 @@
           },
           {
             "position": {
-              "x": 655,
-              "y": 255
+              "x": 620,
+              "y": 165
             },
             "size": {
               "width": 110,
@@ -715,8 +716,8 @@
             },
             "vertices": [
               {
-                "x": 440,
-                "y": 380
+                "x": 450,
+                "y": 370
               }
             ]
           },
@@ -814,13 +815,19 @@
             ],
             "id": "9eaa7257-17bb-477a-a502-40136a059cd9",
             "source": {
-              "x": 290,
-              "y": 120
+              "cell": "0b7b6ccb-16bc-43f7-a16d-bb923c345466",
+              "port": "83bb6c73-14ab-444f-add1-1858e20adc99"
             },
             "target": {
               "cell": "4ca509f7-776c-4c56-8c7f-04ba74c294a6",
               "port": "6bd3b827-8c16-4d95-92a3-6210b7a24724"
-            }
+            },
+            "vertices": [
+              {
+                "x": 480,
+                "y": 50
+              }
+            ]
           },
           {
             "shape": "flow",
@@ -853,15 +860,17 @@
               "isPublicNetwork": false,
               "protocol": "",
               "threats": [],
-              "trustBoundaryIds": []
+              "trustBoundaryIds": [
+                "a15bbbc8-0f76-4563-bc4b-1287d052f541"
+              ]
             },
             "labels": [
               "Notifikasi status presensi berhasil"
             ],
             "id": "c90a4227-1324-489a-85d2-c0abd99e5523",
             "source": {
-              "x": 660,
-              "y": 280
+              "cell": "4ca509f7-776c-4c56-8c7f-04ba74c294a6",
+              "port": "396c62a2-3f37-456a-b176-2263fdc92eb1"
             },
             "target": {
               "cell": "0b7b6ccb-16bc-43f7-a16d-bb923c345466",
