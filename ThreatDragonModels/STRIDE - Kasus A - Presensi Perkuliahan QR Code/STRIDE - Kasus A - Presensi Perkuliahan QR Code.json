@@ -60,21 +60,13 @@
                 "5fcfa320-26a5-47f7-9940-00e99f21f356",
                 "df2944f1-192d-4b5b-98db-b7dbad7c44fc",
                 "9eaa7257-17bb-477a-a502-40136a059cd9",
-                "c90a4227-1324-489a-85d2-c0abd99e5523",
-                "a9c3ac52-0491-444d-be4b-2f3096216d4f"
+                "c90a4227-1324-489a-85d2-c0abd99e5523"
               ],
               "containedElements": [
                 "4af0b00d-d507-40d3-8155-192113e52a76",
                 "3c1ef67f-197c-49ea-9f80-8c7325a6bc15",
                 "4ca509f7-776c-4c56-8c7f-04ba74c294a6"
               ]
-            },
-            "tools": {
-              "items": [
-                "boundary",
-                "button-remove"
-              ],
-              "name": null
             }
           },
           {
@@ -922,21 +914,35 @@
               "isPublicNetwork": false,
               "protocol": "",
               "threats": [],
-              "trustBoundaryIds": [
-                "a15bbbc8-0f76-4563-bc4b-1287d052f541"
-              ]
+              "trustBoundaryIds": []
             },
             "labels": [
               "Data Flow"
             ],
             "id": "a9c3ac52-0491-444d-be4b-2f3096216d4f",
             "source": {
-              "x": 710,
-              "y": 200
+              "cell": "4ca509f7-776c-4c56-8c7f-04ba74c294a6",
+              "port": "7f3873da-8426-40c9-ac6b-5b51d88b02db"
             },
             "target": {
               "cell": "4af0b00d-d507-40d3-8155-192113e52a76",
               "port": "383b621b-b30b-4456-ba81-ca4da041da37"
+            },
+            "vertices": [
+              {
+                "x": 780,
+                "y": 130
+              }
+            ],
+            "tools": {
+              "items": [
+                "boundary",
+                "button-remove",
+                "vertices",
+                "source-arrowhead",
+                "target-arrowhead"
+              ],
+              "name": null
             }
           }
         ],
