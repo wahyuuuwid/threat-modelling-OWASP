@@ -68,6 +68,13 @@
                 "3c1ef67f-197c-49ea-9f80-8c7325a6bc15",
                 "4ca509f7-776c-4c56-8c7f-04ba74c294a6"
               ]
+            },
+            "tools": {
+              "items": [
+                "boundary",
+                "button-remove"
+              ],
+              "name": null
             }
           },
           {
@@ -306,8 +313,8 @@
           },
           {
             "position": {
-              "x": 885,
-              "y": 165
+              "x": 875,
+              "y": 85.00000000000045
             },
             "size": {
               "width": 60,
@@ -931,8 +938,8 @@
             },
             "vertices": [
               {
-                "x": 810,
-                "y": 130
+                "x": 750,
+                "y": 85
               }
             ]
           },
@@ -983,8 +990,8 @@
             },
             "vertices": [
               {
-                "x": 840,
-                "y": 260
+                "x": 820,
+                "y": 170
               }
             ]
           },
@@ -1008,7 +1015,7 @@
             "connector": "smooth",
             "data": {
               "type": "tm.Flow",
-              "name": "Data Flow",
+              "name": "Simpan catatan kehadiran & cek kuota",
               "description": "",
               "outOfScope": false,
               "isTrustBoundary": false,
@@ -1024,7 +1031,7 @@
               ]
             },
             "labels": [
-              "Data Flow"
+              "Simpan catatan kehadiran & cek kuota"
             ],
             "id": "a39edf8c-bca0-4f3d-a808-b1aaf0abc0a7",
             "source": {
