@@ -34,7 +34,7 @@
         "cells": [
           {
             "position": {
-              "x": 550,
+              "x": 570,
               "y": 10
             },
             "size": {
@@ -69,13 +69,6 @@
                 "3c1ef67f-197c-49ea-9f80-8c7325a6bc15",
                 "4ca509f7-776c-4c56-8c7f-04ba74c294a6"
               ]
-            },
-            "tools": {
-              "items": [
-                "boundary",
-                "button-remove"
-              ],
-              "name": null
             }
           },
           {
@@ -434,7 +427,7 @@
           },
           {
             "position": {
-              "x": 880,
+              "x": 940,
               "y": 330
             },
             "size": {
@@ -558,8 +551,8 @@
           },
           {
             "position": {
-              "x": 620,
-              "y": 165
+              "x": 640,
+              "y": 145.00000000000045
             },
             "size": {
               "width": 110,
@@ -1070,7 +1063,7 @@
             "connector": "smooth",
             "data": {
               "type": "tm.Flow",
-              "name": "Data Flow",
+              "name": "Hasil query sesi & daftar kehadiran",
               "description": "",
               "outOfScope": false,
               "isTrustBoundary": false,
@@ -1086,7 +1079,7 @@
               ]
             },
             "labels": [
-              "Data Flow"
+              "Hasil query sesi & daftar kehadiran"
             ],
             "id": "cdc12704-78bf-4e5b-8de4-168a433b34be",
             "source": {
@@ -1096,7 +1089,13 @@
             "target": {
               "cell": "3c1ef67f-197c-49ea-9f80-8c7325a6bc15",
               "port": "8c288c8b-53d3-4faa-a995-d8b718c5d640"
-            }
+            },
+            "vertices": [
+              {
+                "x": 740,
+                "y": 360
+              }
+            ]
           }
         ],
         "description": "Data Flow Diagram level proses utama untuk sistem presensi perkuliahan berbasis QR Code.        "
