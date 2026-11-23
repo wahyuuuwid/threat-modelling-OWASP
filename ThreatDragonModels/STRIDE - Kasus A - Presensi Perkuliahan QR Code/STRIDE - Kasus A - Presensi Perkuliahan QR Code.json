@@ -187,8 +187,8 @@
           },
           {
             "position": {
-              "x": 145,
-              "y": 280
+              "x": 120,
+              "y": 290
             },
             "size": {
               "width": 160,
@@ -794,7 +794,7 @@
             "connector": "smooth",
             "data": {
               "type": "tm.Flow",
-              "name": "Data Flow",
+              "name": "Kirim token QR & data presensi",
               "description": "",
               "outOfScope": false,
               "isTrustBoundary": false,
@@ -810,16 +810,26 @@
               ]
             },
             "labels": [
-              "Data Flow"
+              "Kirim token QR & data presensi"
             ],
             "id": "9eaa7257-17bb-477a-a502-40136a059cd9",
             "source": {
-              "x": 310,
+              "x": 290,
               "y": 120
             },
             "target": {
               "cell": "4ca509f7-776c-4c56-8c7f-04ba74c294a6",
               "port": "6bd3b827-8c16-4d95-92a3-6210b7a24724"
+            },
+            "tools": {
+              "items": [
+                "boundary",
+                "button-remove",
+                "vertices",
+                "source-arrowhead",
+                "target-arrowhead"
+              ],
+              "name": null
             }
           }
         ],
