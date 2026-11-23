@@ -34,11 +34,11 @@
         "cells": [
           {
             "position": {
-              "x": 499.99999999999955,
-              "y": -419.999999999999
+              "x": 409.99999999999955,
+              "y": -419.9999999999994
             },
             "size": {
-              "width": 650,
+              "width": 740,
               "height": 540
             },
             "attrs": {
@@ -312,7 +312,7 @@
             },
             "size": {
               "width": 90,
-              "height": 90
+              "height": 80
             },
             "attrs": {
               "text": {
@@ -1032,6 +1032,12 @@
               "cell": "4ca509f7-776c-4c56-8c7f-04ba74c294a6",
               "port": "7f3873da-8426-40c9-ac6b-5b51d88b02db"
             },
+            "vertices": [
+              {
+                "x": 830,
+                "y": -100
+              }
+            ],
             "tools": {
               "items": [
                 "boundary",
@@ -1041,13 +1047,7 @@
                 "target-arrowhead"
               ],
               "name": null
-            },
-            "vertices": [
-              {
-                "x": 830,
-                "y": -100
-              }
-            ]
+            }
           },
           {
             "shape": "flow",
