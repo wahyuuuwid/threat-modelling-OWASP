@@ -60,7 +60,9 @@
                 "df2944f1-192d-4b5b-98db-b7dbad7c44fc",
                 "9eaa7257-17bb-477a-a502-40136a059cd9",
                 "c90a4227-1324-489a-85d2-c0abd99e5523",
-                "5fcfa320-26a5-47f7-9940-00e99f21f356"
+                "5fcfa320-26a5-47f7-9940-00e99f21f356",
+                "42589954-a401-4680-b333-bbaae3d5e41c",
+                "9ed16a3c-b80f-4272-b8ee-edb1a011d4e2"
               ],
               "containedElements": [
                 "4af0b00d-d507-40d3-8155-192113e52a76",
@@ -1030,12 +1032,6 @@
               "cell": "4ca509f7-776c-4c56-8c7f-04ba74c294a6",
               "port": "7f3873da-8426-40c9-ac6b-5b51d88b02db"
             },
-            "vertices": [
-              {
-                "x": 830,
-                "y": -100
-              }
-            ],
             "tools": {
               "items": [
                 "boundary",
@@ -1045,7 +1041,13 @@
                 "target-arrowhead"
               ],
               "name": null
-            }
+            },
+            "vertices": [
+              {
+                "x": 830,
+                "y": -100
+              }
+            ]
           },
           {
             "shape": "flow",
@@ -1102,9 +1104,63 @@
             ]
           },
           {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Data Flow",
+              "description": "",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [],
+              "trustBoundaryIds": [
+                "a15bbbc8-0f76-4563-bc4b-1287d052f541"
+              ]
+            },
+            "labels": [
+              "Data Flow"
+            ],
+            "id": "42589954-a401-4680-b333-bbaae3d5e41c",
+            "source": {
+              "cell": "bf1355ac-3ff0-4986-a8f8-07030b588ad1",
+              "port": "33e8d872-0314-4ef1-bbfe-1049c5e98274"
+            },
+            "target": {
+              "cell": "4ca509f7-776c-4c56-8c7f-04ba74c294a6",
+              "port": "8b40c4e9-6a66-424c-8fc7-d045bcf7bdc6"
+            },
+            "vertices": [
+              {
+                "x": 550,
+                "y": 10
+              }
+            ]
+          },
+          {
             "position": {
-              "x": 40,
-              "y": -40
+              "x": 50,
+              "y": 0
             },
             "size": {
               "width": 170,
@@ -1249,24 +1305,26 @@
               "isPublicNetwork": false,
               "protocol": "",
               "threats": [],
-              "trustBoundaryIds": []
+              "trustBoundaryIds": [
+                "a15bbbc8-0f76-4563-bc4b-1287d052f541"
+              ]
             },
             "labels": [
               "Data rekap kehadiran"
             ],
             "id": "9ed16a3c-b80f-4272-b8ee-edb1a011d4e2",
             "source": {
-              "x": 610,
-              "y": -140
+              "cell": "4ca509f7-776c-4c56-8c7f-04ba74c294a6",
+              "port": "8b40c4e9-6a66-424c-8fc7-d045bcf7bdc6"
             },
             "target": {
               "cell": "bf1355ac-3ff0-4986-a8f8-07030b588ad1",
-              "port": "33e8d872-0314-4ef1-bbfe-1049c5e98274"
+              "port": "2ace9d8b-f26e-4c09-9f52-026f994c37cd"
             },
             "vertices": [
               {
-                "x": 310,
-                "y": -20
+                "x": 390,
+                "y": -60
               }
             ]
           }
