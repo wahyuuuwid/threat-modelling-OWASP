@@ -1035,7 +1035,17 @@
                 "x": 830,
                 "y": -100
               }
-            ]
+            ],
+            "tools": {
+              "items": [
+                "boundary",
+                "button-remove",
+                "vertices",
+                "source-arrowhead",
+                "target-arrowhead"
+              ],
+              "name": null
+            }
           },
           {
             "shape": "flow",
@@ -1090,52 +1100,6 @@
                 "y": -130
               }
             ]
-          },
-          {
-            "shape": "flow",
-            "attrs": {
-              "line": {
-                "stroke": "#333333",
-                "targetMarker": {
-                  "name": "block"
-                },
-                "sourceMarker": {
-                  "name": ""
-                },
-                "strokeDasharray": null
-              }
-            },
-            "width": 200,
-            "height": 100,
-            "zIndex": 10,
-            "connector": "smooth",
-            "data": {
-              "type": "tm.Flow",
-              "name": "Data Flow",
-              "description": "",
-              "outOfScope": false,
-              "isTrustBoundary": false,
-              "reasonOutOfScope": "",
-              "hasOpenThreats": false,
-              "isBidirectional": false,
-              "isEncrypted": false,
-              "isPublicNetwork": false,
-              "protocol": "",
-              "threats": [],
-              "trustBoundaryIds": []
-            },
-            "labels": [
-              "Data Flow"
-            ],
-            "id": "9ed16a3c-b80f-4272-b8ee-edb1a011d4e2",
-            "source": {
-              "x": 264,
-              "y": -70
-            },
-            "target": {
-              "x": 364,
-              "y": 30
-            }
           },
           {
             "position": {
@@ -1253,6 +1217,58 @@
               "providesAuthentication": false,
               "threats": []
             }
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 12,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Data rekap kehadiran",
+              "description": "",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [],
+              "trustBoundaryIds": []
+            },
+            "labels": [
+              "Data rekap kehadiran"
+            ],
+            "id": "9ed16a3c-b80f-4272-b8ee-edb1a011d4e2",
+            "source": {
+              "x": 610,
+              "y": -140
+            },
+            "target": {
+              "cell": "bf1355ac-3ff0-4986-a8f8-07030b588ad1",
+              "port": "33e8d872-0314-4ef1-bbfe-1049c5e98274"
+            },
+            "vertices": [
+              {
+                "x": 310,
+                "y": -20
+              }
+            ]
           }
         ],
         "description": "Data Flow Diagram level proses utama untuk sistem presensi perkuliahan berbasis QR Code.        "
