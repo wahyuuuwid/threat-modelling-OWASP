@@ -61,13 +61,21 @@
                 "df2944f1-192d-4b5b-98db-b7dbad7c44fc",
                 "9eaa7257-17bb-477a-a502-40136a059cd9",
                 "c90a4227-1324-489a-85d2-c0abd99e5523",
-                "a39edf8c-bca0-4f3d-a808-b1aaf0abc0a7"
+                "a39edf8c-bca0-4f3d-a808-b1aaf0abc0a7",
+                "cdc12704-78bf-4e5b-8de4-168a433b34be"
               ],
               "containedElements": [
                 "4af0b00d-d507-40d3-8155-192113e52a76",
                 "3c1ef67f-197c-49ea-9f80-8c7325a6bc15",
                 "4ca509f7-776c-4c56-8c7f-04ba74c294a6"
               ]
+            },
+            "tools": {
+              "items": [
+                "boundary",
+                "button-remove"
+              ],
+              "name": null
             }
           },
           {
@@ -1034,6 +1042,54 @@
             "target": {
               "cell": "3c1ef67f-197c-49ea-9f80-8c7325a6bc15",
               "port": "c88fd084-f172-4197-b08a-d48fb5772b8f"
+            }
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Data Flow",
+              "description": "",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [],
+              "trustBoundaryIds": [
+                "a15bbbc8-0f76-4563-bc4b-1287d052f541"
+              ]
+            },
+            "labels": [
+              "Data Flow"
+            ],
+            "id": "cdc12704-78bf-4e5b-8de4-168a433b34be",
+            "source": {
+              "x": 700,
+              "y": 270
+            },
+            "target": {
+              "cell": "3c1ef67f-197c-49ea-9f80-8c7325a6bc15",
+              "port": "8c288c8b-53d3-4faa-a995-d8b718c5d640"
             }
           }
         ],
