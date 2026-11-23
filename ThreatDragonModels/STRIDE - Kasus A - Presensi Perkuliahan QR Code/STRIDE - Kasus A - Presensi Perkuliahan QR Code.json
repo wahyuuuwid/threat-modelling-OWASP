@@ -67,6 +67,13 @@
                 "3c1ef67f-197c-49ea-9f80-8c7325a6bc15",
                 "4ca509f7-776c-4c56-8c7f-04ba74c294a6"
               ]
+            },
+            "tools": {
+              "items": [
+                "boundary",
+                "button-remove"
+              ],
+              "name": null
             }
           },
           {
@@ -795,8 +802,8 @@
             "connector": "smooth",
             "data": {
               "type": "tm.Flow",
-              "name": "Kirim token QR & data presensi",
-              "description": "",
+              "name": "Token sesi QR + token\nautentikasi mahasiswa",
+              "description": "Dikirim saat mahasiswa memindai QR.",
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
@@ -811,7 +818,7 @@
               ]
             },
             "labels": [
-              "Kirim token QR & data presensi"
+              "Token sesi QR + token\nautentikasi mahasiswa"
             ],
             "id": "9eaa7257-17bb-477a-a502-40136a059cd9",
             "source": {
