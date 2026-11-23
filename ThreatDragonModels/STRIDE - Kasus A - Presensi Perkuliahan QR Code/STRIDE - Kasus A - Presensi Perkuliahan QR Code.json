@@ -67,13 +67,6 @@
                 "3c1ef67f-197c-49ea-9f80-8c7325a6bc15",
                 "4ca509f7-776c-4c56-8c7f-04ba74c294a6"
               ]
-            },
-            "tools": {
-              "items": [
-                "boundary",
-                "button-remove"
-              ],
-              "name": null
             }
           },
           {
@@ -541,7 +534,7 @@
             "data": {
               "type": "tm.Store",
               "name": "Database Akademik",
-              "description": "",
+              "description": "Menyimpan keanggotaan kelas, jadwal, sesi presensi, dan catatan kehadiran.",
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
