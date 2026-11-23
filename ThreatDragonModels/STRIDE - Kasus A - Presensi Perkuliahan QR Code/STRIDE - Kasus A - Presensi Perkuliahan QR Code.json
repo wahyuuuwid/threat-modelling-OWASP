@@ -34,11 +34,11 @@
         "cells": [
           {
             "position": {
-              "x": 570,
-              "y": 30
+              "x": 590,
+              "y": 20
             },
             "size": {
-              "width": 430,
+              "width": 630,
               "height": 420
             },
             "attrs": {
@@ -67,6 +67,13 @@
                 "3c1ef67f-197c-49ea-9f80-8c7325a6bc15",
                 "4ca509f7-776c-4c56-8c7f-04ba74c294a6"
               ]
+            },
+            "tools": {
+              "items": [
+                "boundary",
+                "button-remove"
+              ],
+              "name": null
             }
           },
           {
@@ -305,7 +312,7 @@
           },
           {
             "position": {
-              "x": 835,
+              "x": 895,
               "y": 190
             },
             "size": {
@@ -425,8 +432,8 @@
           },
           {
             "position": {
-              "x": 805,
-              "y": 340
+              "x": 1030,
+              "y": 310
             },
             "size": {
               "width": 120,
@@ -903,7 +910,7 @@
             "connector": "smooth",
             "data": {
               "type": "tm.Flow",
-              "name": "Data Flow",
+              "name": "Verifikasi kredensial / token login",
               "description": "",
               "outOfScope": false,
               "isTrustBoundary": false,
@@ -917,7 +924,7 @@
               "trustBoundaryIds": []
             },
             "labels": [
-              "Data Flow"
+              "Verifikasi kredensial / token login"
             ],
             "id": "a9c3ac52-0491-444d-be4b-2f3096216d4f",
             "source": {
@@ -930,20 +937,62 @@
             },
             "vertices": [
               {
-                "x": 780,
+                "x": 810,
                 "y": 130
               }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Hasil validasi akun",
+              "description": "",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [],
+              "trustBoundaryIds": []
+            },
+            "labels": [
+              "Hasil validasi akun"
             ],
-            "tools": {
-              "items": [
-                "boundary",
-                "button-remove",
-                "vertices",
-                "source-arrowhead",
-                "target-arrowhead"
-              ],
-              "name": null
-            }
+            "id": "6cc5cd39-2a19-4690-9afd-251992a615aa",
+            "source": {
+              "cell": "4af0b00d-d507-40d3-8155-192113e52a76",
+              "port": "906207de-0f26-48a4-a8d9-9c5d82b2b46e"
+            },
+            "target": {
+              "cell": "4ca509f7-776c-4c56-8c7f-04ba74c294a6",
+              "port": "7f3873da-8426-40c9-ac6b-5b51d88b02db"
+            },
+            "vertices": [
+              {
+                "x": 820,
+                "y": 310
+              }
+            ]
           }
         ],
         "description": "Data Flow Diagram level proses utama untuk sistem presensi perkuliahan berbasis QR Code.        "
