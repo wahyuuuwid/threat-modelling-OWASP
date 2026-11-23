@@ -34,8 +34,8 @@
         "cells": [
           {
             "position": {
-              "x": 580,
-              "y": 10.000000000000455
+              "x": 570,
+              "y": 40
             },
             "size": {
               "width": 370,
@@ -48,19 +48,22 @@
             },
             "visible": true,
             "shape": "trust-boundary-box",
-            "id": "a15bbbc8-0f76-4563-bc4b-1287d052f541",
             "zIndex": -1,
+            "id": "a15bbbc8-0f76-4563-bc4b-1287d052f541",
             "data": {
               "type": "tm.BoundaryBox",
               "name": "Trust Boundary: Jaringan Internal Kampus",
               "description": "",
               "isTrustBoundary": true,
               "hasOpenThreats": false,
-              "crossingFlows": [],
+              "crossingFlows": [
+                "df2944f1-192d-4b5b-98db-b7dbad7c44fc",
+                "5fcfa320-26a5-47f7-9940-00e99f21f356"
+              ],
               "containedElements": [
-                "b84c6c65-341a-4315-ab22-3a1440eb6748",
                 "4af0b00d-d507-40d3-8155-192113e52a76",
-                "3c1ef67f-197c-49ea-9f80-8c7325a6bc15"
+                "3c1ef67f-197c-49ea-9f80-8c7325a6bc15",
+                "4ca509f7-776c-4c56-8c7f-04ba74c294a6"
               ]
             }
           },
@@ -85,6 +88,7 @@
             },
             "visible": true,
             "shape": "actor",
+            "zIndex": 1,
             "ports": {
               "groups": {
                 "top": {
@@ -168,7 +172,6 @@
               ]
             },
             "id": "0b7b6ccb-16bc-43f7-a16d-bb923c345466",
-            "zIndex": 1,
             "data": {
               "type": "tm.Actor",
               "name": "Mahasiswa (Browser)",
@@ -183,8 +186,8 @@
           },
           {
             "position": {
-              "x": 145,
-              "y": 220
+              "x": 175,
+              "y": 225
             },
             "size": {
               "width": 160,
@@ -202,6 +205,7 @@
             },
             "visible": true,
             "shape": "actor",
+            "zIndex": 2,
             "ports": {
               "groups": {
                 "top": {
@@ -285,7 +289,6 @@
               ]
             },
             "id": "efb77f5d-89d5-4f71-8275-33d3ef098b68",
-            "zIndex": 2,
             "data": {
               "type": "tm.Actor",
               "name": "Dosen (Browser)",
@@ -300,128 +303,8 @@
           },
           {
             "position": {
-              "x": 695,
-              "y": 65.00000000000045
-            },
-            "size": {
-              "width": 70,
-              "height": 80
-            },
-            "attrs": {
-              "text": {
-                "text": "Backend Presensi"
-              },
-              "body": {
-                "stroke": "#333333",
-                "strokeWidth": 1.5,
-                "strokeDasharray": null
-              }
-            },
-            "visible": true,
-            "shape": "process",
-            "ports": {
-              "groups": {
-                "top": {
-                  "position": "top",
-                  "attrs": {
-                    "circle": {
-                      "r": 4,
-                      "magnet": true,
-                      "stroke": "#5F95FF",
-                      "strokeWidth": 1,
-                      "fill": "#fff",
-                      "style": {
-                        "visibility": "hidden"
-                      }
-                    }
-                  }
-                },
-                "right": {
-                  "position": "right",
-                  "attrs": {
-                    "circle": {
-                      "r": 4,
-                      "magnet": true,
-                      "stroke": "#5F95FF",
-                      "strokeWidth": 1,
-                      "fill": "#fff",
-                      "style": {
-                        "visibility": "hidden"
-                      }
-                    }
-                  }
-                },
-                "bottom": {
-                  "position": "bottom",
-                  "attrs": {
-                    "circle": {
-                      "r": 4,
-                      "magnet": true,
-                      "stroke": "#5F95FF",
-                      "strokeWidth": 1,
-                      "fill": "#fff",
-                      "style": {
-                        "visibility": "hidden"
-                      }
-                    }
-                  }
-                },
-                "left": {
-                  "position": "left",
-                  "attrs": {
-                    "circle": {
-                      "r": 4,
-                      "magnet": true,
-                      "stroke": "#5F95FF",
-                      "strokeWidth": 1,
-                      "fill": "#fff",
-                      "style": {
-                        "visibility": "hidden"
-                      }
-                    }
-                  }
-                }
-              },
-              "items": [
-                {
-                  "group": "top",
-                  "id": "383b621b-b30b-4456-ba81-ca4da041da37"
-                },
-                {
-                  "group": "right",
-                  "id": "ac37c37e-913c-4dce-a978-84a9138f6927"
-                },
-                {
-                  "group": "bottom",
-                  "id": "906207de-0f26-48a4-a8d9-9c5d82b2b46e"
-                },
-                {
-                  "group": "left",
-                  "id": "53ee60ee-70b5-49a2-a0bb-ddd34eb3d593"
-                }
-              ]
-            },
-            "id": "b84c6c65-341a-4315-ab22-3a1440eb6748",
-            "zIndex": 3,
-            "data": {
-              "type": "tm.Process",
-              "name": "Backend Presensi",
-              "description": "",
-              "outOfScope": false,
-              "isTrustBoundary": false,
-              "reasonOutOfScope": "",
-              "hasOpenThreats": false,
-              "handlesCardPayment": false,
-              "handlesGoodsOrServices": false,
-              "isWebApplication": false,
-              "privilegeLevel": "",
-              "threats": []
-            }
-          },
-          {
-            "position": {
-              "x": 700,
-              "y": 240
+              "x": 670,
+              "y": 85.00000000000045
             },
             "size": {
               "width": 60,
@@ -439,6 +322,7 @@
             },
             "visible": true,
             "shape": "process",
+            "zIndex": 4,
             "ports": {
               "groups": {
                 "top": {
@@ -522,7 +406,6 @@
               ]
             },
             "id": "4af0b00d-d507-40d3-8155-192113e52a76",
-            "zIndex": 4,
             "data": {
               "type": "tm.Process",
               "name": "Layanan Autentikasi Kampus",
@@ -541,7 +424,7 @@
           {
             "position": {
               "x": 805,
-              "y": 145.00000000000045
+              "y": 165
             },
             "size": {
               "width": 120,
@@ -562,6 +445,7 @@
             },
             "visible": true,
             "shape": "store",
+            "zIndex": 5,
             "ports": {
               "groups": {
                 "top": {
@@ -645,7 +529,6 @@
               ]
             },
             "id": "3c1ef67f-197c-49ea-9f80-8c7325a6bc15",
-            "zIndex": 5,
             "data": {
               "type": "tm.Store",
               "name": "Database Akademik",
@@ -660,6 +543,364 @@
               "storesCredentials": false,
               "storesInventory": false,
               "threats": []
+            }
+          },
+          {
+            "position": {
+              "x": 645,
+              "y": 180
+            },
+            "size": {
+              "width": 110,
+              "height": 110
+            },
+            "attrs": {
+              "text": {
+                "text": "Backend Presensi"
+              },
+              "body": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "process",
+            "ports": {
+              "groups": {
+                "top": {
+                  "position": "top",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "right": {
+                  "position": "right",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "bottom": {
+                  "position": "bottom",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "left": {
+                  "position": "left",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                }
+              },
+              "items": [
+                {
+                  "group": "top",
+                  "id": "6bd3b827-8c16-4d95-92a3-6210b7a24724"
+                },
+                {
+                  "group": "right",
+                  "id": "7f3873da-8426-40c9-ac6b-5b51d88b02db"
+                },
+                {
+                  "group": "bottom",
+                  "id": "8b40c4e9-6a66-424c-8fc7-d045bcf7bdc6"
+                },
+                {
+                  "group": "left",
+                  "id": "396c62a2-3f37-456a-b176-2263fdc92eb1"
+                }
+              ]
+            },
+            "id": "4ca509f7-776c-4c56-8c7f-04ba74c294a6",
+            "zIndex": 6,
+            "data": {
+              "type": "tm.Process",
+              "name": "Backend Presensi",
+              "description": "",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "handlesCardPayment": false,
+              "handlesGoodsOrServices": false,
+              "isWebApplication": false,
+              "privilegeLevel": "",
+              "threats": []
+            }
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Buka sesi & request generate QR",
+              "description": "",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [],
+              "trustBoundaryIds": [
+                "a15bbbc8-0f76-4563-bc4b-1287d052f541"
+              ]
+            },
+            "labels": [
+              "Buka sesi & request generate QR"
+            ],
+            "id": "df2944f1-192d-4b5b-98db-b7dbad7c44fc",
+            "source": {
+              "x": 290,
+              "y": 220
+            },
+            "target": {
+              "cell": "4ca509f7-776c-4c56-8c7f-04ba74c294a6",
+              "port": "396c62a2-3f37-456a-b176-2263fdc92eb1"
+            },
+            "vertices": [
+              {
+                "x": 460,
+                "y": 180
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Display QR code sesi (aktif 5 menit)",
+              "description": "",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [],
+              "trustBoundaryIds": [
+                "a15bbbc8-0f76-4563-bc4b-1287d052f541"
+              ]
+            },
+            "labels": [
+              "Display QR code sesi (aktif 5 menit)"
+            ],
+            "id": "5fcfa320-26a5-47f7-9940-00e99f21f356",
+            "source": {
+              "cell": "4ca509f7-776c-4c56-8c7f-04ba74c294a6",
+              "port": "8b40c4e9-6a66-424c-8fc7-d045bcf7bdc6"
+            },
+            "target": {
+              "cell": "efb77f5d-89d5-4f71-8275-33d3ef098b68",
+              "port": "57992b90-3e4a-43d7-a06f-1bf94d5502bc"
+            },
+            "vertices": [
+              {
+                "x": 590,
+                "y": 340
+              }
+            ],
+            "tools": {
+              "items": [
+                "boundary",
+                "button-remove",
+                "vertices",
+                "source-arrowhead",
+                "target-arrowhead",
+                "boundary",
+                "button-remove",
+                "vertices",
+                "source-arrowhead",
+                "target-arrowhead",
+                "boundary",
+                "button-remove",
+                "vertices",
+                "source-arrowhead",
+                "target-arrowhead",
+                "boundary",
+                "button-remove",
+                "vertices",
+                "source-arrowhead",
+                "target-arrowhead",
+                "boundary",
+                "button-remove",
+                "vertices",
+                "source-arrowhead",
+                "target-arrowhead",
+                "boundary",
+                "button-remove",
+                "vertices",
+                "source-arrowhead",
+                "target-arrowhead",
+                "boundary",
+                "button-remove",
+                "vertices",
+                "source-arrowhead",
+                "target-arrowhead",
+                "boundary",
+                "button-remove",
+                "vertices",
+                "source-arrowhead",
+                "target-arrowhead",
+                "boundary",
+                "button-remove",
+                "vertices",
+                "source-arrowhead",
+                "target-arrowhead",
+                "boundary",
+                "button-remove",
+                "vertices",
+                "source-arrowhead",
+                "target-arrowhead",
+                "boundary",
+                "button-remove",
+                "vertices",
+                "source-arrowhead",
+                "target-arrowhead",
+                "boundary",
+                "button-remove",
+                "vertices",
+                "source-arrowhead",
+                "target-arrowhead",
+                "boundary",
+                "button-remove",
+                "vertices",
+                "source-arrowhead",
+                "target-arrowhead",
+                "boundary",
+                "button-remove",
+                "vertices",
+                "source-arrowhead",
+                "target-arrowhead",
+                "boundary",
+                "button-remove",
+                "vertices",
+                "source-arrowhead",
+                "target-arrowhead",
+                "boundary",
+                "button-remove",
+                "vertices",
+                "source-arrowhead",
+                "target-arrowhead",
+                "boundary",
+                "button-remove",
+                "vertices",
+                "source-arrowhead",
+                "target-arrowhead",
+                "boundary",
+                "button-remove",
+                "vertices",
+                "source-arrowhead",
+                "target-arrowhead",
+                "boundary",
+                "button-remove",
+                "vertices",
+                "source-arrowhead",
+                "target-arrowhead",
+                "boundary",
+                "button-remove",
+                "vertices",
+                "source-arrowhead",
+                "target-arrowhead",
+                "boundary",
+                "button-remove",
+                "vertices",
+                "source-arrowhead",
+                "target-arrowhead",
+                "boundary",
+                "button-remove",
+                "vertices",
+                "source-arrowhead",
+                "target-arrowhead",
+                "boundary",
+                "button-remove",
+                "vertices",
+                "source-arrowhead",
+                "target-arrowhead",
+                "boundary",
+                "button-remove",
+                "vertices",
+                "source-arrowhead",
+                "target-arrowhead",
+                "boundary",
+                "button-remove",
+                "vertices",
+                "source-arrowhead",
+                "target-arrowhead"
+              ],
+              "name": null
             }
           }
         ],
