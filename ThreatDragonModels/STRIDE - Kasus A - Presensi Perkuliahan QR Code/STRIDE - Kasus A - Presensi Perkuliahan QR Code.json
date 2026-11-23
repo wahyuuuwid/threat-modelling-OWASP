@@ -34,8 +34,8 @@
         "cells": [
           {
             "position": {
-              "x": 570,
-              "y": 10
+              "x": 580,
+              "y": -9.999999999999545
             },
             "size": {
               "width": 650,
@@ -312,12 +312,12 @@
           },
           {
             "position": {
-              "x": 910,
-              "y": 70
+              "x": 930,
+              "y": 55.0000000000005
             },
             "size": {
-              "width": 60,
-              "height": 60
+              "width": 90,
+              "height": 90
             },
             "attrs": {
               "text": {
@@ -910,7 +910,7 @@
             "connector": "smooth",
             "data": {
               "type": "tm.Flow",
-              "name": "Verifikasi kredensial / token login",
+              "name": "Verifikasi token\nautentikasi",
               "description": "",
               "outOfScope": false,
               "isTrustBoundary": false,
@@ -924,7 +924,7 @@
               "trustBoundaryIds": []
             },
             "labels": [
-              "Verifikasi kredensial / token login"
+              "Verifikasi token\nautentikasi"
             ],
             "id": "a9c3ac52-0491-444d-be4b-2f3096216d4f",
             "source": {
@@ -1123,6 +1123,7 @@
             },
             "visible": true,
             "shape": "actor",
+            "zIndex": 11,
             "ports": {
               "groups": {
                 "top": {
@@ -1206,7 +1207,6 @@
               ]
             },
             "id": "bf1355ac-3ff0-4986-a8f8-07030b588ad1",
-            "zIndex": 11,
             "data": {
               "type": "tm.Actor",
               "name": "Admin Akademik\n(Browser)",
