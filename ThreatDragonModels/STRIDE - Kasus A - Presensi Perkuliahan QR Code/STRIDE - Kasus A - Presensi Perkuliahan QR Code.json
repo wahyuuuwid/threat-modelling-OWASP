@@ -719,7 +719,7 @@
                   "status": "Open",
                   "severity": "Medium",
                   "type": "Repudiation",
-                  "description": "Jika sistem presensi hanya mencatat status hadir tanpa menyimpan jam pasti, identitas akun/sesi, dan asal koneksi (seperti IP atau perangkat) saat presensi diproses, maka mahasiswa bisa membantah saat dibilang bolos atau dosen bisa membantah saat dibilang membuka/menutup sesi, sehingga sulit dipastikan siapa yang sebenarnya melakukan tindakan tersebut. Dampak: Bukti aktivitas di sistem kurang jelas, jadi susah menelusuri kejadian atau menyelesaikan protes/sengketa presensi. Asumsi: Detail pencatatan log aktivitas belum dijelaskan secara rinci di deskripsi kasus.",
+                  "description": "Jika sistem presensi hanya mencatat status hadir tanpa menyimpan jam pasti, identitas akun/sesi, dan asal koneksi (seperti IP atau perangkat) saat presensi diproses, maka mahasiswa bisa membantah saat dibilang bolos atau dosen bisa membantah saat dibilang membuka/menutup sesi, sehingga sulit dipastikan siapa yang sebenarnya melakukan tindakan tersebut.\nDampak: Bukti aktivitas di sistem kurang jelas, jadi susah menelusuri kejadian atau menyelesaikan protes/sengketa presensi.\nLikelihood: 2 (Sedang).\nImpact: 2 (Sedang).\nRisk Score: 2 × 2 = 4 (Sedang).\nAsumsi: Detail pencatatan log aktivitas belum dijelaskan secara rinci di deskripsi kasus.",
                   "mitigation": "Catat riwayat aktivitas penting di backend (audit logging), seperti siapa yang melakukan aksi (NIM/NIP), ID sesi, jam kejadian yang jelas, status aksi, dan info asal koneksi/perangkat (seperti IP), lalu jaga agar catatan riwayat ini tidak mudah diubah atau dihapus.",
                   "modelType": "STRIDE",
                   "new": false,
@@ -730,11 +730,18 @@
               "threatFrequency": {
                 "spoofing": 2,
                 "tampering": 0,
-                "repudiation": 1,
+                "repudiation": 3,
                 "informationDisclosure": 0,
                 "denialOfService": 3,
                 "elevationOfPrivilege": 1
               }
+            },
+            "tools": {
+              "items": [
+                "boundary",
+                "button-remove"
+              ],
+              "name": null
             }
           },
           {
@@ -1165,7 +1172,7 @@
                   "status": "Open",
                   "severity": "High",
                   "type": "Information disclosure",
-                  "description": "Jika token atau gambar QR code sesi presensi difoto dan dibagikan ke luar kelas (misalnya ke grup pesan) sementara token tersebut masih berlaku dan dapat divalidasi oleh sistem, maka pihak di luar kelas dapat melakukan presensi menggunakan token yang bocor tersebut. Dampak: Terjadi pencatatan kehadiran oleh pihak yang tidak berada di kelas sehingga keakuratan data presensi terganggu. Asumsi: QR code sesi ditampilkan di layar kelas dan masa berlaku sesi total adalah lima menit.",
+                  "description": "Jika token atau gambar QR code sesi presensi difoto dan dibagikan ke luar kelas (misalnya ke grup pesan) sementara token tersebut masih berlaku dan dapat divalidasi oleh sistem, maka pihak di luar kelas dapat melakukan presensi menggunakan token yang bocor tersebut.\nDampak: Terjadi pencatatan kehadiran oleh pihak yang tidak berada di kelas sehingga keakuratan data presensi terganggu.\nLikelihood: 3 (Tinggi).\nImpact: 2 (Sedang).\nRisk Score: 3 × 2 = 6 (Tinggi).\nAsumsi: QR code sesi ditampilkan di layar kelas dan masa berlaku sesi total adalah lima menit.",
                   "mitigation": "Pakai Dynamic QR atau kode berbasis waktu (TOTP) supaya QR code di layar kelas terus berubah tiap beberapa detik selama masa berlaku sesi 5 menit, pastikan kode QR itu cuma berlaku untuk sesi kelas yang sedang aktif (tidak bisa dipakai di sesi atau kelas lain), cek keaslian dan masa berlakunya di server backend sebelum mencatat kehadiran, serta ingatkan agar QR tidak disebar ke luar kelas.",
                   "modelType": "STRIDE",
                   "new": false,
@@ -1178,7 +1185,7 @@
               ],
               "threatFrequency": {
                 "tampering": 0,
-                "informationDisclosure": 1,
+                "informationDisclosure": 3,
                 "denialOfService": 0
               }
             },
