@@ -695,7 +695,7 @@
                   "status": "Open",
                   "severity": "High",
                   "type": "Spoofing",
-                  "description": "Jika seorang mahasiswa membagikan username dan password atau kredensial akun kampus kepada temannya yang hadir di kelas, kemudian temannya menggunakan akun tersebut untuk login dan melakukan pemindaian QR Code, maka sistem dapat menganggap bahwa presensi dilakukan oleh pemilik akun yang sebenarnya. Hal ini dapat menyebabkan mahasiswa yang tidak hadir tercatat sebagai mahasiswa yang hadir dalam perkuliahan.\n\nLikelihood: 2 (Sedang).\nImpact: 3 (Tinggi).\nRisk Score: 2 × 3 = 6 (Tinggi).",
+                  "description": "Jika seorang mahasiswa membagikan username dan password atau kredensial akun kampus kepada temannya yang hadir di kelas, kemudian temannya menggunakan akun tersebut untuk login dan melakukan pemindaian QR Code, maka sistem dapat menganggap bahwa presensi dilakukan oleh pemilik akun yang sebenarnya. Hal ini dapat menyebabkan mahasiswa yang tidak hadir tercatat sebagai mahasiswa yang hadir dalam perkuliahan. Asumsi: akun kampus hanya dilindungi username dan password tanpa autentikasi multifaktor.\n\nLikelihood: 2 (Sedang).\nImpact: 3 (Tinggi).\nRisk Score: 2 × 3 = 6 (Tinggi).",
                   "mitigation": "Menerapkan autentikasi multifaktor, pendeteksian login mencurigakan, notifikasi login dari perangkat baru, kebijakan larangan berbagi kredensial, serta verifikasi kehadiran tambahan oleh dosen apabila ditemukan aktivitas mencurigakan.",
                   "modelType": "STRIDE",
                   "new": false,
@@ -743,7 +743,7 @@
                 }
               ],
               "threatFrequency": {
-                "spoofing": 3,
+                "spoofing": 5,
                 "tampering": 0,
                 "repudiation": 5,
                 "informationDisclosure": 0,
@@ -844,7 +844,7 @@
                   "status": "Open",
                   "severity": "High",
                   "type": "Tampering",
-                  "description": "Jika seorang pengguna mengubah parameter ID Mahasiswa atau Session ID pada payload permintaan presensi sebelum diproses oleh Backend Presensi, kemudian backend menerima parameter tersebut tanpa melakukan validasi dan pemeriksaan otorisasi yang memadai, maka sistem berpotensi mencatat kehadiran atas nama mahasiswa lain atau pada sesi perkuliahan yang tidak sesuai. Hal ini dapat menyebabkan manipulasi catatan kehadiran dan ketidaksesuaian data presensi.\n\nLikelihood: 2 (Sedang).\nImpact: 3 (Tinggi).\nRisk Score: 2 × 3 = 6 (Tinggi).",
+                  "description": "Jika seorang pengguna mengubah parameter ID Mahasiswa atau Session ID pada payload permintaan presensi sebelum diproses oleh Backend Presensi, kemudian backend menerima parameter tersebut tanpa melakukan validasi dan pemeriksaan otorisasi yang memadai, maka sistem berpotensi mencatat kehadiran atas nama mahasiswa lain atau pada sesi perkuliahan yang tidak sesuai. Hal ini dapat menyebabkan manipulasi catatan kehadiran dan ketidaksesuaian data presensi. Asumsi: payload presensi dari browser memuat ID mahasiswa dan Session ID yang dapat diubah lewat developer tools atau proxy.\n\nLikelihood: 2 (Sedang).\nImpact: 3 (Tinggi).\nRisk Score: 2 × 3 = 6 (Tinggi).",
                   "mitigation": "Backend harus mengambil identitas mahasiswa dari token autentikasi yang telah diverifikasi, melakukan validasi Session ID, memeriksa keanggotaan mahasiswa dalam kelas, memvalidasi masa berlaku sesi, serta menerapkan pemeriksaan otorisasi dan batasan unik pada database sebelum menyimpan catatan kehadiran.",
                   "modelType": "STRIDE",
                   "new": false,
@@ -856,7 +856,7 @@
                 "a15bbbc8-0f76-4563-bc4b-1287d052f541"
               ],
               "threatFrequency": {
-                "tampering": 3,
+                "tampering": 4,
                 "informationDisclosure": 0,
                 "denialOfService": 0
               }
@@ -955,7 +955,7 @@
             "data": {
               "type": "tm.Flow",
               "name": "Verifikasi token\nautentikasi",
-              "description": "",
+              "description": "Backend Presensi meneruskan token autentikasi pengguna ke Layanan Autentikasi Kampus untuk diverifikasi keabsahan dan masa berlakunya. Berjalan di dalam jaringan internal kampus.",
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
@@ -1007,7 +1007,7 @@
             "data": {
               "type": "tm.Flow",
               "name": "Hasil validasi akun",
-              "description": "",
+              "description": "Respons Layanan Autentikasi Kampus berisi status valid/tidak valid, identitas pengguna (NIM/NIP), dan peran pengguna yang dipakai backend untuk keputusan otorisasi.",
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
@@ -1092,7 +1092,17 @@
                 "x": 1070,
                 "y": -190
               }
-            ]
+            ],
+            "tools": {
+              "items": [
+                "boundary",
+                "button-remove",
+                "vertices",
+                "source-arrowhead",
+                "target-arrowhead"
+              ],
+              "name": null
+            }
           },
           {
             "shape": "flow",
@@ -1184,8 +1194,8 @@
                   "status": "Open",
                   "severity": "High",
                   "type": "Information disclosure",
-                  "description": "Jika token atau gambar QR code sesi presensi difoto dan dibagikan ke luar kelas (misalnya ke grup pesan) sementara token tersebut masih berlaku dan dapat divalidasi oleh sistem, maka pihak di luar kelas dapat melakukan presensi menggunakan token yang bocor tersebut.\nDampak: Terjadi pencatatan kehadiran oleh pihak yang tidak berada di kelas sehingga keakuratan data presensi terganggu.\n\nLikelihood: 3 (Tinggi).\nImpact: 2 (Sedang).\nRisk Score: 3 × 2 = 6 (Tinggi).",
-                  "mitigation": "Pakai Dynamic QR atau kode berbasis waktu (TOTP) supaya QR code di layar kelas terus berubah tiap beberapa detik selama masa berlaku sesi 5 menit, pastikan kode QR itu cuma berlaku untuk sesi kelas yang sedang aktif (tidak bisa dipakai di sesi atau kelas lain), cek keaslian dan masa berlakunya di server backend sebelum mencatat kehadiran, serta ingatkan agar QR tidak disebar ke luar kelas.",
+                  "description": "Jika token atau gambar QR code sesi presensi difoto dan dibagikan ke luar kelas (misalnya ke grup pesan) sementara token tersebut masih berlaku dan dapat divalidasi oleh sistem, maka pihak di luar kelas dapat melakukan presensi menggunakan token yang bocor tersebut.\nDampak: Terjadi pencatatan kehadiran oleh pihak yang tidak berada di kelas sehingga keakuratan data presensi terganggu.\nAsumsi: token QR bersifat statis selama masa berlaku sesi 5 menit dan tidak terikat lokasi maupun perangkat, sehingga foto QR tetap dapat dipindai dari luar kelas.\n\nLikelihood: 3 (Tinggi).\nImpact: 2 (Sedang).\nRisk Score: 3 × 2 = 6 (Tinggi).",
+                  "mitigation": "1. Menggunakan Dynamic QR atau kode berbasis waktu (TOTP) yang berganti setiap 15–30 detik selama masa berlaku sesi 5 menit, sehingga foto QR cepat kedaluwarsa.\n2. Mengikat token QR hanya pada sesi kelas yang sedang aktif (tidak dapat dipakai di sesi atau kelas lain) dan menandatanganinya di server (HMAC/signature).\n3. Memverifikasi keaslian dan masa berlaku token di Backend Presensi sebelum mencatat kehadiran; token lama ditolak.\n4. Membatasi presensi hanya dari jaringan Wi-Fi kampus/ruang kelas atau dengan verifikasi lokasi (geofencing), agar QR yang diteruskan secara real-time tetap tidak bisa dipakai dari luar kelas.\n5. Dosen dapat menutup sesi lebih awal, melakukan pengecekan acak, dan mengingatkan mahasiswa agar tidak menyebarkan QR ke luar kelas.",
                   "modelType": "STRIDE",
                   "new": false,
                   "number": 4,
@@ -1197,7 +1207,7 @@
               ],
               "threatFrequency": {
                 "tampering": 0,
-                "informationDisclosure": 4,
+                "informationDisclosure": 6,
                 "denialOfService": 0
               }
             },
