@@ -668,38 +668,27 @@
               "privilegeLevel": "",
               "threats": [
                 {
-                  "id": "ceddba2f-ba73-474d-be59-8dbaf75cf571",
-                  "title": "Catatan presensi kurang lengkap sehingga mahasiswa atau dosen bisa mengelak",
+                  "id": "2c95483e-f7a2-4753-8405-ac659ffa9422",
+                  "title": "Penyalahgunaan Kredensial Akun Mahasiswa untuk Titip Absen",
                   "status": "Open",
-                  "severity": "Medium",
-                  "type": "Repudiation",
-                  "description": "Jika sistem presensi hanya mencatat status hadir tanpa menyimpan jam pasti, identitas akun/sesi, dan asal koneksi (seperti IP atau perangkat) saat presensi diproses, maka mahasiswa bisa membantah saat dibilang bolos atau dosen bisa membantah saat dibilang membuka/menutup sesi, sehingga sulit dipastikan siapa yang sebenarnya melakukan tindakan tersebut. Dampak: Bukti aktivitas di sistem kurang jelas, jadi susah menelusuri kejadian atau menyelesaikan protes/sengketa presensi. Asumsi: Detail pencatatan log aktivitas belum dijelaskan secara rinci di deskripsi kasus.",
-                  "mitigation": "Catat riwayat aktivitas penting di backend (audit logging), seperti siapa yang melakukan aksi (NIM/NIP), ID sesi, jam kejadian yang jelas, status aksi, dan info asal koneksi/perangkat (seperti IP), lalu jaga agar catatan riwayat ini tidak mudah diubah atau dihapus.",
+                  "severity": "High",
+                  "type": "Spoofing",
+                  "description": "Jika seorang mahasiswa membagikan username dan password atau kredensial akun kampus kepada temannya yang hadir di kelas, kemudian temannya menggunakan akun tersebut untuk login dan melakukan pemindaian QR Code, maka sistem dapat menganggap bahwa presensi dilakukan oleh pemilik akun yang sebenarnya. Hal ini dapat menyebabkan mahasiswa yang tidak hadir tercatat sebagai mahasiswa yang hadir dalam perkuliahan.\n\nLikelihood: 2 (Sedang).\n\nImpact: 3 (Tinggi).\n\nRisk Score: 2 × 3 = 6 (Tinggi).",
+                  "mitigation": "Menerapkan autentikasi multifaktor, pendeteksian login mencurigakan, notifikasi login dari perangkat baru, kebijakan larangan berbagi kredensial, serta verifikasi kehadiran tambahan oleh dosen apabila ditemukan aktivitas mencurigakan.",
                   "modelType": "STRIDE",
                   "new": false,
-                  "number": 1,
-                  "score": "4"
+                  "number": 3,
+                  "score": ""
                 }
               ],
               "threatFrequency": {
-                "spoofing": 0,
+                "spoofing": 1,
                 "tampering": 0,
-                "repudiation": 1,
+                "repudiation": 0,
                 "informationDisclosure": 0,
                 "denialOfService": 0,
                 "elevationOfPrivilege": 0
               }
-            },
-            "tools": {
-              "items": [
-                "boundary",
-                "button-remove",
-                "boundary",
-                "button-remove",
-                "boundary",
-                "button-remove"
-              ],
-              "name": null
             }
           },
           {
@@ -760,7 +749,8 @@
             "shape": "flow",
             "attrs": {
               "line": {
-                "stroke": "#333333",
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "targetMarker": {
                   "name": "block"
                 },
@@ -781,15 +771,34 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isBidirectional": false,
               "isEncrypted": false,
               "isPublicNetwork": false,
               "protocol": "",
-              "threats": [],
+              "threats": [
+                {
+                  "id": "41735d87-1096-4534-bb83-e17389a103ad",
+                  "title": "Manipulasi Parameter ID Mahasiswa dan Session ID pada Permintaan Presensi",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Tampering",
+                  "description": "Jika seorang pengguna mengubah parameter ID Mahasiswa atau Session ID pada payload permintaan presensi sebelum diproses oleh Backend Presensi, kemudian backend menerima parameter tersebut tanpa melakukan validasi dan pemeriksaan otorisasi yang memadai, maka sistem berpotensi mencatat kehadiran atas nama mahasiswa lain atau pada sesi perkuliahan yang tidak sesuai. Hal ini dapat menyebabkan manipulasi catatan kehadiran dan ketidaksesuaian data presensi.\n\nLikelihood: 2 (Sedang).\n\nImpact: 3 (Tinggi).\n\nRisk Score: 2 × 3 = 6 (Tinggi).",
+                  "mitigation": "Backend harus mengambil identitas mahasiswa dari token autentikasi yang telah diverifikasi, melakukan validasi Session ID, memeriksa keanggotaan mahasiswa dalam kelas, memvalidasi masa berlaku sesi, serta menerapkan pemeriksaan otorisasi dan batasan unik pada database sebelum menyimpan catatan kehadiran.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 4,
+                  "score": ""
+                }
+              ],
               "trustBoundaryIds": [
                 "a15bbbc8-0f76-4563-bc4b-1287d052f541"
-              ]
+              ],
+              "threatFrequency": {
+                "tampering": 1,
+                "informationDisclosure": 0,
+                "denialOfService": 0
+              }
             },
             "labels": [
               "Token sesi QR + token\nautentikasi mahasiswa"
@@ -808,7 +817,17 @@
                 "x": 360,
                 "y": -355
               }
-            ]
+            ],
+            "tools": {
+              "items": [
+                "boundary",
+                "button-remove",
+                "vertices",
+                "source-arrowhead",
+                "target-arrowhead"
+              ],
+              "name": null
+            }
           },
           {
             "shape": "flow",
@@ -1357,6 +1376,6 @@
     ],
     "diagramTop": 3,
     "reviewer": "M. Agung Nugroho",
-    "threatTop": 2
+    "threatTop": 4
   }
 }
