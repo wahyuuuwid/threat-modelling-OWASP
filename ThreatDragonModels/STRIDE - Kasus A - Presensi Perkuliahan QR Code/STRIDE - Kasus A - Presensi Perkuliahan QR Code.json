@@ -186,13 +186,6 @@
               "hasOpenThreats": false,
               "providesAuthentication": false,
               "threats": []
-            },
-            "tools": {
-              "items": [
-                "boundary",
-                "button-remove"
-              ],
-              "name": null
             }
           },
           {
@@ -719,7 +712,7 @@
                   "status": "Open",
                   "severity": "Medium",
                   "type": "Repudiation",
-                  "description": "Jika sistem presensi hanya mencatat status hadir tanpa menyimpan jam pasti, identitas akun/sesi, dan asal koneksi (seperti IP atau perangkat) saat presensi diproses, maka mahasiswa bisa membantah saat dibilang bolos atau dosen bisa membantah saat dibilang membuka/menutup sesi, sehingga sulit dipastikan siapa yang sebenarnya melakukan tindakan tersebut.\nDampak: Bukti aktivitas di sistem kurang jelas, jadi susah menelusuri kejadian atau menyelesaikan protes/sengketa presensi.\nLikelihood: 2 (Sedang).\nImpact: 2 (Sedang).\nRisk Score: 2 × 2 = 4 (Sedang).\nAsumsi: Detail pencatatan log aktivitas belum dijelaskan secara rinci di deskripsi kasus.",
+                  "description": "Jika sistem presensi hanya mencatat status hadir tanpa menyimpan jam pasti, identitas akun/sesi, dan asal koneksi (seperti IP atau perangkat) saat presensi diproses, maka mahasiswa bisa membantah saat dibilang bolos atau dosen bisa membantah saat dibilang membuka/menutup sesi, sehingga sulit dipastikan siapa yang sebenarnya melakukan tindakan tersebut.\nDampak: Bukti aktivitas di sistem kurang jelas, jadi susah menelusuri kejadian atau menyelesaikan protes/sengketa presensi.\nLikelihood: 2 (Sedang).\nImpact: 2 (Sedang).\nRisk Score: 2 × 2 = 4 (Sedang).",
                   "mitigation": "Catat riwayat aktivitas penting di backend (audit logging), seperti siapa yang melakukan aksi (NIM/NIP), ID sesi, jam kejadian yang jelas, status aksi, dan info asal koneksi/perangkat (seperti IP), lalu jaga agar catatan riwayat ini tidak mudah diubah atau dihapus.",
                   "modelType": "STRIDE",
                   "new": false,
@@ -730,7 +723,7 @@
               "threatFrequency": {
                 "spoofing": 2,
                 "tampering": 0,
-                "repudiation": 3,
+                "repudiation": 4,
                 "informationDisclosure": 0,
                 "denialOfService": 3,
                 "elevationOfPrivilege": 1
