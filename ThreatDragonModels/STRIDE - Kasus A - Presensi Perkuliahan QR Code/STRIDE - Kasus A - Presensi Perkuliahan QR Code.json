@@ -85,8 +85,8 @@
                 "text": "Mahasiswa (Browser)"
               },
               "body": {
-                "stroke": "red",
-                "strokeWidth": 2.5,
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
                 "strokeDasharray": null
               }
             },
@@ -183,23 +183,9 @@
               "isTrustBoundary": false,
               "outOfScope": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": true,
+              "hasOpenThreats": false,
               "providesAuthentication": false,
-              "threats": [
-                {
-                  "id": "f44db960-c6aa-4f48-8c8a-81f0361c04c8",
-                  "title": "Ancaman STRIDE baru",
-                  "status": "Open",
-                  "severity": "TBD",
-                  "type": "Spoofing",
-                  "description": "Berikan deskripsi untuk ancaman ini",
-                  "mitigation": "Berikan remediasi untuk ancaman ini atau alasan jika status adalah N/A",
-                  "modelType": "STRIDE",
-                  "new": true,
-                  "number": 6,
-                  "score": ""
-                }
-              ]
+              "threats": []
             }
           },
           {
@@ -695,27 +681,34 @@
                   "score": "6"
                 },
                 {
-                  "id": "c3c03cfb-e1fc-4934-b10a-cde5fe290329",
-                  "title": "Ancaman STRIDE baru",
+                  "id": "60352169-ad97-4ecf-afb7-d3b882e648cb",
+                  "title": "Catatan presensi kurang lengkap sehingga mahasiswa atau dosen bisa mengelak",
                   "status": "Open",
-                  "severity": "High",
-                  "type": "Denial of service",
-                  "description": "Jika ratusan mahasiswa memindai QR dalam waktu bersamaan pada awal jam kuliah, maka Backend Presensi dan pool koneksi Database Akademik dapat kewalahan sehingga permintaan timeout dan kehadiran tidak tercatat sebelum sesi 5 menit berakhir. Dampak: mahasiswa yang hadir tercatat absen, rekap tidak akurat, dan dosen harus mengoreksi manual. Skor = Kemungkinan 2 x Dampak 3 = 6 (Tinggi). Asumsi: kapasitas backend tetap dan belum ada rate limiting maupun antrean.",
-                  "mitigation": "1. Rate limiting per akun/IP pada endpoint scan, dengan respons yang jelas agar mahasiswa tidak scan berulang.\n2. Caching status sesi aktif dan daftar anggota kelas selama 5 menit agar database hanya menerima insert.\n3. Unique constraint (mahasiswa, sesi) agar scan ulang tidak menambah beban.\n4. Connection pooling, batas waktu query, dan antrean insert yang menyimpan waktu scan asli.\n5. Pemantauan latensi/error, serta prosedur perpanjangan sesi atau koreksi manual oleh dosen (tercatat di log audit).",
+                  "severity": "Medium",
+                  "type": "Repudiation",
+                  "description": "Jika sistem presensi hanya mencatat status hadir tanpa menyimpan jam pasti, identitas akun/sesi, dan asal koneksi (seperti IP atau perangkat) saat presensi diproses, maka mahasiswa bisa membantah saat dibilang bolos atau dosen bisa membantah saat dibilang membuka/menutup sesi, sehingga sulit dipastikan siapa yang sebenarnya melakukan tindakan tersebut. Dampak: Bukti aktivitas di sistem kurang jelas, jadi susah menelusuri kejadian atau menyelesaikan protes/sengketa presensi. Asumsi: Detail pencatatan log aktivitas belum dijelaskan secara rinci di deskripsi kasus.",
+                  "mitigation": "Catat riwayat aktivitas penting di backend (audit logging), seperti siapa yang melakukan aksi (NIM/NIP), ID sesi, jam kejadian yang jelas, status aksi, dan info asal koneksi/perangkat (seperti IP), lalu jaga agar catatan riwayat ini tidak mudah diubah atau dihapus.",
                   "modelType": "STRIDE",
                   "new": false,
                   "number": 7,
-                  "score": "6"
+                  "score": "4"
                 }
               ],
               "threatFrequency": {
                 "spoofing": 2,
                 "tampering": 0,
-                "repudiation": 0,
+                "repudiation": 1,
                 "informationDisclosure": 0,
-                "denialOfService": 1,
+                "denialOfService": 0,
                 "elevationOfPrivilege": 0
               }
+            },
+            "tools": {
+              "items": [
+                "boundary",
+                "button-remove"
+              ],
+              "name": null
             }
           },
           {
@@ -1112,7 +1105,8 @@
             "shape": "flow",
             "attrs": {
               "line": {
-                "stroke": "#333333",
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "targetMarker": {
                   "name": "block"
                 },
@@ -1133,15 +1127,34 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isBidirectional": false,
               "isEncrypted": false,
               "isPublicNetwork": false,
               "protocol": "",
-              "threats": [],
+              "threats": [
+                {
+                  "id": "7bad33f0-57ab-4480-b0c2-26d114aa04e0",
+                  "title": "Token atau QR code sesi presensi tersebar ke luar kelas dan disalahgunakan",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Information disclosure",
+                  "description": "Jika token atau gambar QR code sesi presensi difoto dan dibagikan ke luar kelas (misalnya ke grup pesan) sementara token tersebut masih berlaku dan dapat divalidasi oleh sistem, maka pihak di luar kelas dapat melakukan presensi menggunakan token yang bocor tersebut. Dampak: Terjadi pencatatan kehadiran oleh pihak yang tidak berada di kelas sehingga keakuratan data presensi terganggu. Asumsi: QR code sesi ditampilkan di layar kelas dan masa berlaku sesi total adalah lima menit.",
+                  "mitigation": "Pakai Dynamic QR atau kode berbasis waktu (TOTP) supaya QR code di layar kelas terus berubah tiap beberapa detik selama masa berlaku sesi 5 menit, pastikan kode QR itu cuma berlaku untuk sesi kelas yang sedang aktif (tidak bisa dipakai di sesi atau kelas lain), cek keaslian dan masa berlakunya di server backend sebelum mencatat kehadiran, serta ingatkan agar QR tidak disebar ke luar kelas.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 8,
+                  "score": "6"
+                }
+              ],
               "trustBoundaryIds": [
                 "a15bbbc8-0f76-4563-bc4b-1287d052f541"
-              ]
+              ],
+              "threatFrequency": {
+                "tampering": 0,
+                "informationDisclosure": 1,
+                "denialOfService": 0
+              }
             },
             "labels": [
               "Display QR code sesi (aktif 5 menit)"
@@ -1158,6 +1171,10 @@
             "vertices": [
               {
                 "x": 410,
+                "y": -130
+              },
+              {
+                "x": 290,
                 "y": -130
               }
             ]
@@ -1393,6 +1410,6 @@
     ],
     "diagramTop": 3,
     "reviewer": "M. Agung Nugroho",
-    "threatTop": 7
+    "threatTop": 8
   }
 }
