@@ -723,7 +723,7 @@
                   "mitigation": "Catat riwayat aktivitas penting di backend (audit logging), seperti siapa yang melakukan aksi (NIM/NIP), ID sesi, jam kejadian yang jelas, status aksi, dan info asal koneksi/perangkat (seperti IP), lalu jaga agar catatan riwayat ini tidak mudah diubah atau dihapus.",
                   "modelType": "STRIDE",
                   "new": false,
-                  "number": 9,
+                  "number": 3,
                   "score": "4"
                 }
               ],
@@ -1169,7 +1169,7 @@
                   "mitigation": "Pakai Dynamic QR atau kode berbasis waktu (TOTP) supaya QR code di layar kelas terus berubah tiap beberapa detik selama masa berlaku sesi 5 menit, pastikan kode QR itu cuma berlaku untuk sesi kelas yang sedang aktif (tidak bisa dipakai di sesi atau kelas lain), cek keaslian dan masa berlakunya di server backend sebelum mencatat kehadiran, serta ingatkan agar QR tidak disebar ke luar kelas.",
                   "modelType": "STRIDE",
                   "new": false,
-                  "number": 10,
+                  "number": 4,
                   "score": "6"
                 }
               ],
