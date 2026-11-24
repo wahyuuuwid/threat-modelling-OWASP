@@ -85,8 +85,8 @@
                 "text": "Mahasiswa (Browser)"
               },
               "body": {
-                "stroke": "#333333",
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               }
             },
@@ -183,9 +183,23 @@
               "isTrustBoundary": false,
               "outOfScope": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "providesAuthentication": false,
-              "threats": []
+              "threats": [
+                {
+                  "id": "f44db960-c6aa-4f48-8c8a-81f0361c04c8",
+                  "title": "Ancaman STRIDE baru",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Spoofing",
+                  "description": "Berikan deskripsi untuk ancaman ini",
+                  "mitigation": "Berikan remediasi untuk ancaman ini atau alasan jika status adalah N/A",
+                  "modelType": "STRIDE",
+                  "new": true,
+                  "number": 6,
+                  "score": ""
+                }
+              ]
             }
           },
           {
@@ -705,16 +719,36 @@
                   "new": false,
                   "number": 8,
                   "score": "6"
+                },
+                {
+                  "id": "4d358ab3-6a97-437d-9574-4c8f28a53ed0",
+                  "title": "Catatan presensi kurang lengkap sehingga mahasiswa atau dosen bisa mengelak",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Repudiation",
+                  "description": "Jika sistem presensi hanya mencatat status hadir tanpa menyimpan jam pasti, identitas akun/sesi, dan asal koneksi (seperti IP atau perangkat) saat presensi diproses, maka mahasiswa bisa membantah saat dibilang bolos atau dosen bisa membantah saat dibilang membuka/menutup sesi, sehingga sulit dipastikan siapa yang sebenarnya melakukan tindakan tersebut. Dampak: Bukti aktivitas di sistem kurang jelas, jadi susah menelusuri kejadian atau menyelesaikan protes/sengketa presensi. Asumsi: Detail pencatatan log aktivitas belum dijelaskan secara rinci di deskripsi kasus.",
+                  "mitigation": "Catat riwayat aktivitas penting di backend (audit logging), seperti siapa yang melakukan aksi (NIM/NIP), ID sesi, jam kejadian yang jelas, status aksi, dan info asal koneksi/perangkat (seperti IP), lalu jaga agar catatan riwayat ini tidak mudah diubah atau dihapus.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 9,
+                  "score": "4"
                 }
               ],
               "threatFrequency": {
                 "spoofing": 2,
                 "tampering": 0,
-                "repudiation": 0,
+                "repudiation": 1,
                 "informationDisclosure": 0,
                 "denialOfService": 3,
                 "elevationOfPrivilege": 1
               }
+            },
+            "tools": {
+              "items": [
+                "boundary",
+                "button-remove"
+              ],
+              "name": null
             }
           },
           {
@@ -1392,6 +1426,6 @@
     ],
     "diagramTop": 3,
     "reviewer": "M. Agung Nugroho",
-    "threatTop": 8
+    "threatTop": 9
   }
 }
