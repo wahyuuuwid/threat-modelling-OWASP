@@ -547,6 +547,13 @@
               "storesCredentials": false,
               "storesInventory": false,
               "threats": []
+            },
+            "tools": {
+              "items": [
+                "boundary",
+                "button-remove"
+              ],
+              "name": null
             }
           },
           {
@@ -1383,7 +1390,8 @@
             "shape": "flow",
             "attrs": {
               "line": {
-                "stroke": "#333333",
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "targetMarker": {
                   "name": "block"
                 },
@@ -1404,15 +1412,34 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isBidirectional": false,
               "isEncrypted": false,
               "isPublicNetwork": false,
               "protocol": "",
-              "threats": [],
+              "threats": [
+                {
+                  "id": "76ea39e6-6bec-4f71-adb1-3508bca4e493",
+                  "title": "Daftar hadir/rekap kelas lain dapat diakses dengan mengganti ID kelas (IDOR)",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Information disclosure",
+                  "description": "Jika pengguna yang sudah login (dosen non-pengampu atau mahasiswa) mengganti parameter ID kelas/sesi pada permintaan daftar hadir atau rekap (misalnya GET /api/rekap?kelas_id=...) dan Backend Presensi hanya memeriksa status login tanpa memeriksa kepemilikan kelas, maka backend mengirimkan daftar hadir kelas lain beserta NIM, nama, dan riwayat kehadiran mahasiswa.\nDampak: kebocoran data pribadi dan data kehadiran mahasiswa kepada pihak yang tidak berwenang.\nAsumsi: ID kelas/sesi berupa angka berurutan yang mudah ditebak dan pemeriksaan otorisasi per objek belum dijelaskan pada deskripsi sistem.\n\nLikelihood: 2 (Sedang).\nImpact: 2 (Sedang).\nRisk Score: 2 × 2 = 4 (Sedang).",
+                  "mitigation": "1. Menerapkan pemeriksaan otorisasi per objek pada setiap request: dosen hanya dapat melihat daftar hadir kelas yang diampu (dicek di Database Akademik), rekap seluruh kelas hanya untuk role admin akademik.\n2. Mengambil identitas dan role dari token yang diverifikasi Layanan Autentikasi Kampus, bukan dari parameter browser.\n3. Menggunakan ID kelas/sesi yang tidak mudah ditebak (UUID) sebagai lapisan tambahan, bukan pengganti otorisasi.\n4. Membatasi kolom yang dikembalikan seperlunya (data minimization).\n5. Mencatat akses rekap di audit log dan melakukan uji negatif: akses kelas lain harus menerima respons 403.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 11,
+                  "score": "4"
+                }
+              ],
               "trustBoundaryIds": [
                 "a15bbbc8-0f76-4563-bc4b-1287d052f541"
-              ]
+              ],
+              "threatFrequency": {
+                "tampering": 0,
+                "informationDisclosure": 1,
+                "denialOfService": 0
+              }
             },
             "labels": [
               "Data rekap kehadiran"
@@ -1439,6 +1466,6 @@
     ],
     "diagramTop": 3,
     "reviewer": "M. Agung Nugroho",
-    "threatTop": 10
+    "threatTop": 11
   }
 }
