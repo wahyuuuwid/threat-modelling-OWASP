@@ -439,11 +439,13 @@
                 "text": "Database Akademik"
               },
               "topLine": {
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               },
               "bottomLine": {
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               }
             },
@@ -540,20 +542,33 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isALog": false,
               "isEncrypted": false,
               "isSigned": false,
               "storesCredentials": false,
               "storesInventory": false,
-              "threats": []
-            },
-            "tools": {
-              "items": [
-                "boundary",
-                "button-remove"
+              "threats": [
+                {
+                  "id": "d4f6ad34-19f8-4df7-9b12-287f35f56dfa",
+                  "title": "Catatan hadir duplikat akibat permintaan presensi paralel (race condition)",
+                  "status": "Open",
+                  "severity": "Low",
+                  "type": "Tampering",
+                  "description": "Jika seorang mahasiswa mengirim beberapa permintaan presensi untuk sesi yang sama secara hampir bersamaan (misalnya menekan tombol scan berulang atau memakai skrip) dan Backend Presensi melakukan pengecekan \"sudah hadir\" lalu menyimpan data dalam dua langkah terpisah, maka pengecekan dapat terlewati sehingga tersimpan lebih dari satu catatan hadir di Database Akademik.\nDampak: aturan bisnis \"satu mahasiswa paling banyak satu catatan hadir per sesi\" dilanggar dan rekap kehadiran tidak akurat, meskipun mudah dikoreksi.\nAsumsi: belum dijelaskan apakah database memiliki batasan unik untuk pasangan mahasiswa–sesi.\n\nLikelihood: 2 (Sedang).\nImpact: 1 (Rendah).\nRisk Score: 2 × 1 = 2 (Rendah).",
+                  "mitigation": "1. Menambahkan unique constraint (id_mahasiswa, id_sesi) pada tabel catatan kehadiran di Database Akademik.\n2. Menggunakan operasi simpan yang atomik (INSERT ... ON CONFLICT DO NOTHING / transaksi) alih-alih cek-lalu-simpan terpisah.\n3. Membuat endpoint presensi idempotent: permintaan berulang mengembalikan status \"sudah tercatat\" tanpa membuat catatan baru.\n4. Menonaktifkan tombol scan di sisi klien setelah permintaan pertama terkirim (sebagai pelengkap, bukan kontrol utama).",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 12,
+                  "score": "2"
+                }
               ],
-              "name": null
+              "threatFrequency": {
+                "tampering": 1,
+                "repudiation": 0,
+                "informationDisclosure": 0,
+                "denialOfService": 0
+              }
             }
           },
           {
@@ -1466,6 +1481,6 @@
     ],
     "diagramTop": 3,
     "reviewer": "M. Agung Nugroho",
-    "threatTop": 11
+    "threatTop": 12
   }
 }
