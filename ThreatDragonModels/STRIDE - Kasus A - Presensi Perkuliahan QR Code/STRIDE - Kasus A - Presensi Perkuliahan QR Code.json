@@ -85,8 +85,8 @@
                 "text": "Mahasiswa (Browser)"
               },
               "body": {
-                "stroke": "red",
-                "strokeWidth": 2.5,
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
                 "strokeDasharray": null
               }
             },
@@ -183,23 +183,16 @@
               "isTrustBoundary": false,
               "outOfScope": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": true,
+              "hasOpenThreats": false,
               "providesAuthentication": false,
-              "threats": [
-                {
-                  "id": "f44db960-c6aa-4f48-8c8a-81f0361c04c8",
-                  "title": "Ancaman STRIDE baru",
-                  "status": "Open",
-                  "severity": "TBD",
-                  "type": "Spoofing",
-                  "description": "Berikan deskripsi untuk ancaman ini",
-                  "mitigation": "Berikan remediasi untuk ancaman ini atau alasan jika status adalah N/A",
-                  "modelType": "STRIDE",
-                  "new": true,
-                  "number": 6,
-                  "score": ""
-                }
-              ]
+              "threats": []
+            },
+            "tools": {
+              "items": [
+                "boundary",
+                "button-remove"
+              ],
+              "name": null
             }
           },
           {
