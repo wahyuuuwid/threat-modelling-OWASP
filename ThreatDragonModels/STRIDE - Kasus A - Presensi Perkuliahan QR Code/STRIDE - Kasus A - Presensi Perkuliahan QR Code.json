@@ -679,32 +679,23 @@
                   "new": false,
                   "number": 1,
                   "score": "4"
-                },
-                {
-                  "id": "66239baa-2451-4253-9e95-8d7134c24e73",
-                  "title": "Token atau QR code sesi presensi tersebar ke luar kelas dan disalah gunakan",
-                  "status": "Open",
-                  "severity": "High",
-                  "type": "Information disclosure",
-                  "description": "Jika token atau gambar QR code sesi presensi difoto dan dibagikan ke luar kelas (misalnya ke grup pesan) sementara token tersebut masih berlaku dan dapat divalidasi oleh sistem, maka pihak di luar kelas dapat melakukan presensi menggunakan token yang bocor tersebut. Dampak: Terjadi pencatatan kehadiran oleh pihak yang tidak berada di kelas sehingga keakuratan data presensi terganggu. Asumsi: QR code sesi ditampilkan di layar kelas dan masa berlaku sesi total adalah lima menit.",
-                  "mitigation": "Pakai Dynamic QR atau kode berbasis waktu (TOTP) supaya QR code di layar kelas terus berubah tiap beberapa detik selama masa berlaku sesi 5 menit, pastikan kode QR itu cuma berlaku untuk sesi kelas yang sedang aktif (tidak bisa dipakai di sesi atau kelas lain), cek keaslian dan masa berlakunya di server backend sebelum mencatat kehadiran, serta ingatkan agar QR tidak disebar ke luar kelas.",
-                  "modelType": "STRIDE",
-                  "new": false,
-                  "number": 2,
-                  "score": "6"
                 }
               ],
               "threatFrequency": {
                 "spoofing": 0,
                 "tampering": 0,
                 "repudiation": 1,
-                "informationDisclosure": 1,
+                "informationDisclosure": 0,
                 "denialOfService": 0,
                 "elevationOfPrivilege": 0
               }
             },
             "tools": {
               "items": [
+                "boundary",
+                "button-remove",
+                "boundary",
+                "button-remove",
                 "boundary",
                 "button-remove"
               ],
