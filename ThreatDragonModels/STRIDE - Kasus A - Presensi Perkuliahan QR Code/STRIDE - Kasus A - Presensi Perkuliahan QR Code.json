@@ -563,8 +563,8 @@
                 "text": "Backend Presensi"
               },
               "body": {
-                "stroke": "#333333",
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               }
             },
@@ -661,12 +661,34 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "handlesCardPayment": false,
               "handlesGoodsOrServices": false,
               "isWebApplication": false,
               "privilegeLevel": "",
-              "threats": []
+              "threats": [
+                {
+                  "id": "9bd7cedd-3baf-45d8-bdec-0a65d8995f3b",
+                  "title": "Penyalahgunaan Kredensial Akun Mahasiswa untuk Titip Absen",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Spoofing",
+                  "description": "Jika seorang mahasiswa membagikan username dan password atau kredensial akun kampus kepada temannya yang hadir di kelas, kemudian temannya menggunakan akun tersebut untuk login dan melakukan pemindaian QR Code, maka sistem dapat menganggap bahwa presensi dilakukan oleh pemilik akun yang sebenarnya. Hal ini dapat menyebabkan mahasiswa yang tidak hadir tercatat sebagai mahasiswa yang hadir dalam perkuliahan.\n\nLikelihood: 2 (Sedang).\n\nImpact: 3 (Tinggi).\n\nRisk Score: 2 × 3 = 6 (Tinggi).",
+                  "mitigation": "Menerapkan autentikasi multifaktor, pendeteksian login mencurigakan, notifikasi login dari perangkat baru, kebijakan larangan berbagi kredensial, serta verifikasi kehadiran tambahan oleh dosen apabila ditemukan aktivitas mencurigakan.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 1,
+                  "score": ""
+                }
+              ],
+              "threatFrequency": {
+                "spoofing": 1,
+                "tampering": 0,
+                "repudiation": 0,
+                "informationDisclosure": 0,
+                "denialOfService": 0,
+                "elevationOfPrivilege": 0
+              }
             }
           },
           {
@@ -727,7 +749,8 @@
             "shape": "flow",
             "attrs": {
               "line": {
-                "stroke": "#333333",
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "targetMarker": {
                   "name": "block"
                 },
@@ -748,15 +771,34 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isBidirectional": false,
               "isEncrypted": false,
               "isPublicNetwork": false,
               "protocol": "",
-              "threats": [],
+              "threats": [
+                {
+                  "id": "69b93650-a1a3-4f6c-af7a-686c8dfe1fef",
+                  "title": "Manipulasi Parameter ID Mahasiswa dan Session ID pada Permintaan Presensi",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Tampering",
+                  "description": "Jika seorang pengguna mengubah parameter ID Mahasiswa atau Session ID pada payload permintaan presensi sebelum diproses oleh Backend Presensi, kemudian backend menerima parameter tersebut tanpa melakukan validasi dan pemeriksaan otorisasi yang memadai, maka sistem berpotensi mencatat kehadiran atas nama mahasiswa lain atau pada sesi perkuliahan yang tidak sesuai. Hal ini dapat menyebabkan manipulasi catatan kehadiran dan ketidaksesuaian data presensi.\n\nLikelihood: 2 (Sedang).\n\nImpact: 3 (Tinggi).\n\nRisk Score: 2 × 3 = 6 (Tinggi).",
+                  "mitigation": "Backend harus mengambil identitas mahasiswa dari token autentikasi yang telah diverifikasi, melakukan validasi Session ID, memeriksa keanggotaan mahasiswa dalam kelas, memvalidasi masa berlaku sesi, serta menerapkan pemeriksaan otorisasi dan batasan unik pada database sebelum menyimpan catatan kehadiran.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 2,
+                  "score": ""
+                }
+              ],
               "trustBoundaryIds": [
                 "a15bbbc8-0f76-4563-bc4b-1287d052f541"
-              ]
+              ],
+              "threatFrequency": {
+                "tampering": 1,
+                "informationDisclosure": 0,
+                "denialOfService": 0
+              }
             },
             "labels": [
               "Token sesi QR + token\nautentikasi mahasiswa"
@@ -774,6 +816,14 @@
               {
                 "x": 360,
                 "y": -355
+              },
+              {
+                "x": 470,
+                "y": -330
+              },
+              {
+                "x": 490,
+                "y": -330
               }
             ]
           },
@@ -1031,16 +1081,6 @@
             "target": {
               "cell": "4ca509f7-776c-4c56-8c7f-04ba74c294a6",
               "port": "7f3873da-8426-40c9-ac6b-5b51d88b02db"
-            },
-            "tools": {
-              "items": [
-                "boundary",
-                "button-remove",
-                "vertices",
-                "source-arrowhead",
-                "target-arrowhead"
-              ],
-              "name": null
             },
             "vertices": [
               {
@@ -1334,6 +1374,6 @@
     ],
     "diagramTop": 3,
     "reviewer": "M. Agung Nugroho",
-    "threatTop": 0
+    "threatTop": 2
   }
 }
