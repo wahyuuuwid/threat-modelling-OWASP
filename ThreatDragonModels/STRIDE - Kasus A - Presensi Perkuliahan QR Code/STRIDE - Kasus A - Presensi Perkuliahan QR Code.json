@@ -742,13 +742,6 @@
                 "denialOfService": 3,
                 "elevationOfPrivilege": 1
               }
-            },
-            "tools": {
-              "items": [
-                "boundary",
-                "button-remove"
-              ],
-              "name": null
             }
           },
           {
@@ -1145,7 +1138,8 @@
             "shape": "flow",
             "attrs": {
               "line": {
-                "stroke": "#333333",
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "targetMarker": {
                   "name": "block"
                 },
@@ -1166,15 +1160,34 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isBidirectional": false,
               "isEncrypted": false,
               "isPublicNetwork": false,
               "protocol": "",
-              "threats": [],
+              "threats": [
+                {
+                  "id": "db8c9e3f-f611-4eab-8c44-687264c8f10a",
+                  "title": "Token atau QR code sesi presensi tersebar ke luar kelas dan disalahgunakan",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Information disclosure",
+                  "description": "Jika token atau gambar QR code sesi presensi difoto dan dibagikan ke luar kelas (misalnya ke grup pesan) sementara token tersebut masih berlaku dan dapat divalidasi oleh sistem, maka pihak di luar kelas dapat melakukan presensi menggunakan token yang bocor tersebut. Dampak: Terjadi pencatatan kehadiran oleh pihak yang tidak berada di kelas sehingga keakuratan data presensi terganggu. Asumsi: QR code sesi ditampilkan di layar kelas dan masa berlaku sesi total adalah lima menit.",
+                  "mitigation": "Pakai Dynamic QR atau kode berbasis waktu (TOTP) supaya QR code di layar kelas terus berubah tiap beberapa detik selama masa berlaku sesi 5 menit, pastikan kode QR itu cuma berlaku untuk sesi kelas yang sedang aktif (tidak bisa dipakai di sesi atau kelas lain), cek keaslian dan masa berlakunya di server backend sebelum mencatat kehadiran, serta ingatkan agar QR tidak disebar ke luar kelas.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 10,
+                  "score": "6"
+                }
+              ],
               "trustBoundaryIds": [
                 "a15bbbc8-0f76-4563-bc4b-1287d052f541"
-              ]
+              ],
+              "threatFrequency": {
+                "tampering": 0,
+                "informationDisclosure": 1,
+                "denialOfService": 0
+              }
             },
             "labels": [
               "Display QR code sesi (aktif 5 menit)"
@@ -1192,8 +1205,22 @@
               {
                 "x": 410,
                 "y": -130
+              },
+              {
+                "x": 360,
+                "y": -130
               }
-            ]
+            ],
+            "tools": {
+              "items": [
+                "boundary",
+                "button-remove",
+                "vertices",
+                "source-arrowhead",
+                "target-arrowhead"
+              ],
+              "name": null
+            }
           },
           {
             "shape": "flow",
@@ -1426,6 +1453,6 @@
     ],
     "diagramTop": 3,
     "reviewer": "M. Agung Nugroho",
-    "threatTop": 9
+    "threatTop": 10
   }
 }
