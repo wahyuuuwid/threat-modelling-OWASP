@@ -53,7 +53,7 @@
             "data": {
               "type": "tm.BoundaryBox",
               "name": "Trust Boundary: Jaringan Internal Kampus",
-              "description": "",
+              "description": "Memisahkan perangkat pengguna (browser mahasiswa, dosen, dan admin di jaringan publik/internet) dari layanan yang dikelola kampus (Backend Presensi, Layanan Autentikasi Kampus, Database Akademik). Semua data dari luar boundary dianggap tidak dipercaya dan harus divalidasi backend.",
               "isTrustBoundary": true,
               "hasOpenThreats": false,
               "crossingFlows": [
@@ -413,7 +413,7 @@
             "data": {
               "type": "tm.Process",
               "name": "Layanan Autentikasi Kampus",
-              "description": "",
+              "description": "Layanan SSO kampus yang menangani login mahasiswa, dosen, dan admin. Memverifikasi token autentikasi yang diteruskan Backend Presensi dan mengembalikan identitas (NIM/NIP) serta peran pengguna (mahasiswa/dosen/admin).",
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
@@ -773,7 +773,7 @@
             "data": {
               "type": "tm.Flow",
               "name": "Buka/Tutup sesi & request generate QR",
-              "description": "",
+              "description": "Permintaan dosen untuk membuka atau menutup sesi presensi kelas yang diampu, berisi token autentikasi dosen dan ID kelas/jadwal. Melintasi trust boundary dari perangkat dosen ke jaringan kampus.",
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
@@ -801,7 +801,7 @@
             },
             "vertices": [
               {
-                "x": 290,
+                "x": 260,
                 "y": -210
               }
             ]
@@ -911,7 +911,7 @@
             "data": {
               "type": "tm.Flow",
               "name": "Hasil presensi\n(diterima/ditolak)",
-              "description": "",
+              "description": "Respons backend ke mahasiswa yang menyatakan presensi berhasil dicatat atau ditolak (misalnya sesi kedaluwarsa, bukan anggota kelas, atau sudah tercatat hadir).",
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
@@ -1068,8 +1068,8 @@
             "connector": "smooth",
             "data": {
               "type": "tm.Flow",
-              "name": "Simpan catatan kehadiran & cek kuota",
-              "description": "",
+              "name": "Simpan catatan kehadiran & cek keanggotaan kelas",
+              "description": "Query backend ke Database Akademik untuk memeriksa sesi aktif, keanggotaan mahasiswa di kelas, dan apakah mahasiswa sudah tercatat hadir pada sesi tersebut, lalu menyimpan catatan kehadiran (ID mahasiswa, ID sesi, waktu scan).",
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
@@ -1082,7 +1082,7 @@
               "trustBoundaryIds": []
             },
             "labels": [
-              "Simpan catatan kehadiran & cek kuota"
+              "Simpan catatan kehadiran & cek keanggotaan kelas"
             ],
             "id": "a39edf8c-bca0-4f3d-a808-b1aaf0abc0a7",
             "source": {
@@ -1094,6 +1094,10 @@
               "port": "c88fd084-f172-4197-b08a-d48fb5772b8f"
             },
             "vertices": [
+              {
+                "x": 990,
+                "y": -210
+              },
               {
                 "x": 1070,
                 "y": -190
@@ -1121,7 +1125,7 @@
             "data": {
               "type": "tm.Flow",
               "name": "Data sesi, daftar hadir\n& rekap",
-              "description": "",
+              "description": "Data yang dibaca backend dari Database Akademik: status dan masa berlaku sesi, keanggotaan kelas, daftar hadir per sesi, serta rekap kehadiran untuk ditampilkan ke dosen atau admin.",
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
@@ -1174,7 +1178,7 @@
             "data": {
               "type": "tm.Flow",
               "name": "Display QR code sesi (aktif 5 menit)",
-              "description": "",
+              "description": "Respons backend ke browser dosen berisi QR code/token sesi yang berlaku 5 menit untuk ditampilkan di layar kelas, beserta daftar hadir kelas yang dipantau dosen.",
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
@@ -1251,7 +1255,7 @@
             "data": {
               "type": "tm.Flow",
               "name": "Permintaan rekap\nseluruh kelas",
-              "description": "",
+              "description": "Permintaan admin akademik untuk melihat rekap kehadiran seluruh kelas, berisi token autentikasi admin dan filter (misalnya periode atau kelas). Melintasi trust boundary dari perangkat admin ke jaringan kampus.",
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
@@ -1423,7 +1427,7 @@
             "data": {
               "type": "tm.Flow",
               "name": "Data rekap kehadiran",
-              "description": "",
+              "description": "Respons backend ke admin akademik berisi rekap kehadiran seluruh kelas (NIM, nama, kelas, status dan waktu hadir). Termasuk data pribadi mahasiswa sehingga hanya boleh dikirim ke pengguna dengan peran admin.",
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
