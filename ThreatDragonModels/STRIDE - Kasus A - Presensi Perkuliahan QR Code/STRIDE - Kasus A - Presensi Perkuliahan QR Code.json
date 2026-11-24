@@ -679,7 +679,7 @@
             "data": {
               "type": "tm.Process",
               "name": "Backend Presensi",
-              "description": "",
+              "description": "Komponen inti yang menerima permintaan dari browser. Bertugas membuka/menutup sesi dan membuat token QR, memvalidasi presensi (token autentikasi, sesi aktif, masa berlaku 5 menit, keanggotaan kelas, dan satu catatan hadir per sesi), menyimpan catatan kehadiran, serta menyajikan daftar hadir dan rekap. Komponen ini yang memutuskan apakah suatu permintaan boleh dipenuhi.",
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
@@ -772,7 +772,7 @@
             "connector": "smooth",
             "data": {
               "type": "tm.Flow",
-              "name": "Buka sesi & request generate QR",
+              "name": "Buka/Tutup sesi & request generate QR",
               "description": "",
               "outOfScope": false,
               "isTrustBoundary": false,
@@ -788,7 +788,7 @@
               ]
             },
             "labels": [
-              "Buka sesi & request generate QR"
+              "Buka/Tutup sesi & request generate QR"
             ],
             "id": "df2944f1-192d-4b5b-98db-b7dbad7c44fc",
             "source": {
@@ -801,7 +801,7 @@
             },
             "vertices": [
               {
-                "x": 340,
+                "x": 290,
                 "y": -210
               }
             ]
