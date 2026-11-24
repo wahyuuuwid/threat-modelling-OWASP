@@ -851,12 +851,6 @@
               "cell": "4ca509f7-776c-4c56-8c7f-04ba74c294a6",
               "port": "6bd3b827-8c16-4d95-92a3-6210b7a24724"
             },
-            "vertices": [
-              {
-                "x": 410,
-                "y": -355
-              }
-            ],
             "tools": {
               "items": [
                 "boundary",
@@ -866,7 +860,13 @@
                 "target-arrowhead"
               ],
               "name": null
-            }
+            },
+            "vertices": [
+              {
+                "x": 410,
+                "y": -355
+              }
+            ]
           },
           {
             "shape": "flow",
@@ -1168,7 +1168,7 @@
                   "status": "Open",
                   "severity": "High",
                   "type": "Information disclosure",
-                  "description": "Jika token atau gambar QR code sesi presensi difoto dan dibagikan ke luar kelas (misalnya ke grup pesan) sementara token tersebut masih berlaku dan dapat divalidasi oleh sistem, maka pihak di luar kelas dapat melakukan presensi menggunakan token yang bocor tersebut.\nDampak: Terjadi pencatatan kehadiran oleh pihak yang tidak berada di kelas sehingga keakuratan data presensi terganggu.\nLikelihood: 3 (Tinggi).\nImpact: 2 (Sedang).\nRisk Score: 3 × 2 = 6 (Tinggi).\nAsumsi: QR code sesi ditampilkan di layar kelas dan masa berlaku sesi total adalah lima menit.",
+                  "description": "Jika token atau gambar QR code sesi presensi difoto dan dibagikan ke luar kelas (misalnya ke grup pesan) sementara token tersebut masih berlaku dan dapat divalidasi oleh sistem, maka pihak di luar kelas dapat melakukan presensi menggunakan token yang bocor tersebut.\nDampak: Terjadi pencatatan kehadiran oleh pihak yang tidak berada di kelas sehingga keakuratan data presensi terganggu.\n\nLikelihood: 3 (Tinggi).\nImpact: 2 (Sedang).\nRisk Score: 3 × 2 = 6 (Tinggi).",
                   "mitigation": "Pakai Dynamic QR atau kode berbasis waktu (TOTP) supaya QR code di layar kelas terus berubah tiap beberapa detik selama masa berlaku sesi 5 menit, pastikan kode QR itu cuma berlaku untuk sesi kelas yang sedang aktif (tidak bisa dipakai di sesi atau kelas lain), cek keaslian dan masa berlakunya di server backend sebelum mencatat kehadiran, serta ingatkan agar QR tidak disebar ke luar kelas.",
                   "modelType": "STRIDE",
                   "new": false,
@@ -1181,7 +1181,7 @@
               ],
               "threatFrequency": {
                 "tampering": 0,
-                "informationDisclosure": 3,
+                "informationDisclosure": 4,
                 "denialOfService": 0
               }
             },
