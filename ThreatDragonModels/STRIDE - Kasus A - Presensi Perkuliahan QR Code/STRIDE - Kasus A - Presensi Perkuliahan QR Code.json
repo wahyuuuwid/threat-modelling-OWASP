@@ -689,6 +689,13 @@
                 "denialOfService": 0,
                 "elevationOfPrivilege": 0
               }
+            },
+            "tools": {
+              "items": [
+                "boundary",
+                "button-remove"
+              ],
+              "name": null
             }
           },
           {
@@ -812,12 +819,6 @@
               "cell": "4ca509f7-776c-4c56-8c7f-04ba74c294a6",
               "port": "6bd3b827-8c16-4d95-92a3-6210b7a24724"
             },
-            "vertices": [
-              {
-                "x": 360,
-                "y": -355
-              }
-            ],
             "tools": {
               "items": [
                 "boundary",
@@ -827,7 +828,13 @@
                 "target-arrowhead"
               ],
               "name": null
-            }
+            },
+            "vertices": [
+              {
+                "x": 360,
+                "y": -355
+              }
+            ]
           },
           {
             "shape": "flow",
@@ -1376,6 +1383,6 @@
     ],
     "diagramTop": 3,
     "reviewer": "M. Agung Nugroho",
-    "threatTop": 4
+    "threatTop": 5
   }
 }
