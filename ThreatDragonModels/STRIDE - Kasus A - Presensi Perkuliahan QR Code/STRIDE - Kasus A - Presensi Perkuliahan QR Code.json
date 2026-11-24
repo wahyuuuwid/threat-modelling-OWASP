@@ -700,7 +700,7 @@
                   "status": "Open",
                   "severity": "High",
                   "type": "Denial of service",
-                  "description": "Jika ratusan mahasiswa memindai QR dalam waktu bersamaan pada awal jam kuliah, maka Backend Presensi dan pool koneksi Database Akademik dapat kewalahan sehingga permintaan timeout dan kehadiran tidak tercatat sebelum sesi 5 menit berakhir. Dampak: mahasiswa yang hadir tercatat absen, rekap tidak akurat, dan dosen harus mengoreksi manual. Skor = Kemungkinan 2 x Dampak 3 = 6 (Tinggi). Asumsi: kapasitas backend tetap dan belum ada rate limiting maupun antrean.",
+                  "description": "Jika ratusan mahasiswa memindai QR dalam waktu bersamaan pada awal jam kuliah, maka Backend Presensi dan pool koneksi Database Akademik dapat kewalahan sehingga permintaan timeout dan kehadiran tidak tercatat sebelum sesi 5 menit berakhir. Hal ini dapat menyebabkan mahasiswa yang hadir tercatat absen, rekap tidak akurat, dan dosen harus mengoreksi manual. Asumsi: kapasitas backend tetap dan belum ada rate limiting maupun antrean.\n\nLikelihood: 2 (Sedang).\nImpact: 3 (Tinggi).\nRisk Score: 2 × 3 = 6 (Tinggi).",
                   "mitigation": "1. Rate limiting per akun/IP pada endpoint scan, dengan respons yang jelas agar mahasiswa tidak scan berulang.\n2. Caching status sesi aktif dan daftar anggota kelas selama 5 menit agar database hanya menerima insert.\n3. Unique constraint (mahasiswa, sesi) agar scan ulang tidak menambah beban.\n4. Connection pooling, batas waktu query, dan antrean insert yang menyimpan waktu scan asli.\n5. Pemantauan latensi/error, serta prosedur perpanjangan sesi atau koreksi manual oleh dosen (tercatat di log audit).",
                   "modelType": "STRIDE",
                   "new": false,
@@ -726,7 +726,7 @@
                 "tampering": 0,
                 "repudiation": 0,
                 "informationDisclosure": 0,
-                "denialOfService": 2,
+                "denialOfService": 3,
                 "elevationOfPrivilege": 1
               }
             }
